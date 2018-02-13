@@ -102,10 +102,10 @@ class daySchedule(object):
 
 							url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
 							u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=4&vol=5&pit=5'.format(items['sayNotice'])
-							os.system('mplayer "' + url+'"')
+							os.system('/usr/bin/mplayer "' + url+'"')
 							# time.sleep(5)
 						if(items['noticeMusic']):
-							os.system('mplayer "%s"' % items['noticeMusic'])
+							os.system('/usr/bin/mplayer "%s"' % items['noticeMusic'])
 			pass
 
 		return True
