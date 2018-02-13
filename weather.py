@@ -10,7 +10,7 @@ sys.setdefaultencoding('utf-8')
 
 class weather(object):
 	"""docstring for weather"""
-	def __init__(self, arg):
+	def __init__(self):
 		pass
 
 
