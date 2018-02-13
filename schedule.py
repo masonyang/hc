@@ -59,25 +59,25 @@ class daySchedule(object):
 
 		return setting[key]
 
-def isHoliday(date,holidaylist,day):
-	holidayResult={}
-	weekEndButWork={}
+	def isHoliday(date,holidaylist,day):
+		holidayResult={}
+		weekEndButWork={}
 
-	for i in holidaylist:
-		for d in i.get('holiday'):
-			for t in d.get('list'):
-				if(t.get('status')=='1'):
-					holidayResult[t.get('date')] = t.get('date')
-				else:
-					weekEndButWork[t.get('date')] = t.get('date')
+		for i in holidaylist:
+			for d in i.get('holiday'):
+				for t in d.get('list'):
+					if(t.get('status')=='1'):
+						holidayResult[t.get('date')] = t.get('date')
+					else:
+						weekEndButWork[t.get('date')] = t.get('date')
 
-	if(holidayResult.has_key(date)):
-		return True
-	else:
-		if((day==5) or (day==6)):
+		if(holidayResult.has_key(date)):
 			return True
 		else:
-			return False
+			if((day==5) or (day==6)):
+				return True
+			else:
+				return False
 
 	def getWeatherInfo(self):
 
