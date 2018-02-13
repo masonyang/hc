@@ -89,10 +89,6 @@ class daySchedule(object):
 
 		commonNotice = self.readDayScheduleConfig('commonNotice')
 
-		url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
-		u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=4&vol=5&pit=5'.format('半点报时,'+self.getWeatherInfo())
-		os.system('/usr/bin/mplayer "' + url+'"')
-
 		for items in commonNotice:
 			if(items['scheduleType'] == 'notice_everyday'):#每日提醒任务
 				if xingqi in items['timeSlot']:#依周几和时间点为判断
