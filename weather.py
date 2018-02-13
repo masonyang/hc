@@ -40,7 +40,7 @@ class weather(object):
 
 		try:
 			with open(home_air_file, 'r') as in_file:
-			hadata = json.load(in_file)
+				hadata = json.load(in_file)
 		except IOError:
 			pass
 
