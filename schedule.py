@@ -82,8 +82,8 @@ class daySchedule(object):
 	def getWeatherInfo(self):
 
 		weatherinfo = weather.weather()
-
-		return weatherinfo.getWeatherInfo()
+		# weatherinfo.getWeatherInfo()
+		return '呵呵'
 
 	def noticeService(self,full_date_time,full_time_string,hour_minute_string,xingqi):
 
