@@ -82,8 +82,8 @@ class daySchedule(object):
 	def getWeatherInfo(self):
 
 		weatherinfo = weather.weather()
-		# weatherinfo.getWeatherInfo()
-		return '呵呵'
+
+		return weatherinfo.getWeatherInfo()
 
 	def noticeService(self,full_date_time,full_time_string,hour_minute_string,xingqi):
 
@@ -98,11 +98,12 @@ class daySchedule(object):
 							if(items['action']=='timebroadcast'):
 								items['sayNotice'] = items['sayNotice'] + hour_minute_string
 							elif(items['action']=='weatherbroadcast'):
-								items['sayNotice'] = items['sayNotice'] + self.getWeatherInfo()
+								items['sayNotice'] = self.getWeatherInfo()
 
 							url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
 							u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'.format(items['sayNotice'])
-							os.system('/usr/bin/mplayer "' + url+'"')
+							# os.system('/usr/bin/mplayer "' + url+'"')
+							print url
 							# time.sleep(5)
 						if(items['noticeMusic']):
 							os.system('/usr/bin/mplayer "%s"' % items['noticeMusic'])
