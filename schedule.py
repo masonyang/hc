@@ -101,7 +101,7 @@ class daySchedule(object):
 								items['sayNotice'] = self.getWeatherInfo()
 
 							url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
-							u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=4&vol=5&pit=5'.format(items['sayNotice'])
+							u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'.format(items['sayNotice'])
 							os.system('/usr/bin/mplayer "' + url+'"')
 							# time.sleep(5)
 						if(items['noticeMusic']):

@@ -49,7 +49,7 @@ class weather(object):
 		else:
 			text='今天{today_weather},当前气温{current_temp}℃. 明天{tomorrow_weather},最高温度{tomorrow_temp_hig}℃,最低温度{tomorrow_temp_low}℃'.format(**wdata)
 	
-		text = '当前室内温度{temp}度，室内湿度{humidity}度.'.format(**hadata)
+		text = text + '当前室内温度{temp}度，室内湿度{humidity}度.'.format(**hadata)
 
 		tomorrow_temp_hig=float(wdata['tomorrow_temp_hig'])
 
