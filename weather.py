@@ -16,13 +16,13 @@ class weather(object):
 
 	def getWeatherInfo(self):
 
-		weather_exe = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'weather_fetcher.py')
+		# weather_exe = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'weather_fetcher.py')
 
-		os.system('python "%s"' % weather_exe)
+		# os.system('python "%s"' % weather_exe)
 
-		home_air_exe = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'home_air_sensor.py')
+		# home_air_exe = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'home_air_sensor.py')
 
-		os.system('python "%s"' % home_air_exe)
+		# os.system('python "%s"' % home_air_exe)
 
 		hadata = {}
 
@@ -66,6 +66,6 @@ class weather(object):
 
 		text = text+otherInfo
 
-		return text.encode('utf-8')
+		return text
 
 
