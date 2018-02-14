@@ -2,17 +2,17 @@
 
 python_dir="/usr/bin/python"
 
-run_dir=$(pwd)
+run_dir="$(pwd)"
 
-function boot(){
+boot(){
 	`$python_dir "$run_dir/boot.py"`
 }
 
-function checkprocess(){
+checkprocess(){
     return $(ps aux|grep -v grep|grep "$1"|wc -l)
 }
 
-function checkInternet(){
+checkInternet(){
 	return $(ping -c 3 "www.baidu.com"|awk 'NR==7 {print $4}')
 }
 
