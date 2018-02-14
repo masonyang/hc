@@ -98,7 +98,7 @@ class daySchedule(object):
 							if(items['action']=='timebroadcast'):
 								items['sayNotice'] = items['sayNotice'] + hour_minute_string
 							elif(items['action']=='weatherbroadcast'):
-								items['sayNotice'] = self.getWeatherInfo()
+								items['sayNotice'] = items['sayNotice'] + self.getWeatherInfo()
 
 							url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
 							u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'.format(items['sayNotice'])
