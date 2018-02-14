@@ -49,13 +49,13 @@ class weather(object):
 		# else:
 		# 	text='今天{today_weather},当前气温{current_temp}℃. 明天{tomorrow_weather},最高温度{tomorrow_temp_hig}℃,最低温度{tomorrow_temp_low}℃'.format(**wdata)
 
-		text = '当前室内温度{temp}度，室内湿度{humidity}度.'.format(**hadata)
+		# text = '当前室内温度{temp}度，室内湿度{humidity}度.'.format(**hadata)
 
 		# tomorrow_temp_hig=float(wdata['tomorrow_temp_hig'])
 
 		# tomorrow_temp_low=float(wdata['tomorrow_temp_low'])
 		
-		otherInfo=''
+		# otherInfo=''
 
 		# if(tomorrow_temp_hig>35):
 		# 	otherInfo=" 已经进入高温烘烤模式，注意防暑降温"
@@ -64,8 +64,8 @@ class weather(object):
 		# elif(tomorrow_temp_low<=0):
 		# 	otherInfo="温度已跌破零点，注意防寒保暖，全副武装"
 
-		text = text+otherInfo
+		# text = text+otherInfo
 
-		return text
+		return '哈哈哈'
 
 
