@@ -96,7 +96,7 @@ class daySchedule(object):
 						if(items['sayNotice']):
 
 							if(items['action']=='timebroadcast'):
-								items['sayNotice'] = hour_minute_string
+								items['sayNotice'] = items['sayNotice'] + hour_minute_string
 							elif(items['action']=='weatherbroadcast'):
 								items['sayNotice'] = self.getWeatherInfo()
 
