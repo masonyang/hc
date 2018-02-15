@@ -106,6 +106,9 @@ class daySchedule(object):
 							# time.sleep(5)
 						if(items['noticeMusic']):
 							os.system('/usr/bin/mplayer "%s"' % items['noticeMusic'])
+						if(items['action'] == 'server'):
+							if(items['dateType'] == 'reboot'):
+								os.system('sudo reboot')
 			pass
 
 		return True
