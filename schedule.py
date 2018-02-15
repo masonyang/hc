@@ -109,6 +109,8 @@ class daySchedule(object):
 						if(items['action'] == 'server'):
 							if(items['dateType'] == 'reboot'):
 								os.system('sudo reboot')
+							elif(items['dateType'] == 'shutdown'):
+								os.system('sudo shutdown -h now')
 			pass
 
 		return True
