@@ -29,7 +29,7 @@ class daySchedule(object):
 	def getCurrentDate(self):
 
 		time_now = datetime.datetime.now()
-		self.current_date = time_now.strftime('%Y-%m-%d')
+		current_date = time_now.strftime('%Y-%m-%d')
 		return current_date
 
 	def getXingQi(self):
