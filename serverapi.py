@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+import os
 import sys
 import urllib
 import urllib2
@@ -44,12 +45,20 @@ class serverapi(object):
 
 	def temporaryNoticePull(self,inputfile):
 
-		url = 'http://192.168.1.102/index.php/openapi/bot.homecenter.temporarynotice/push'
+		allowIpConfig = ['192.168.1.100','192.168.1.101','192.168.1.102','192.168.1.103']
 
-		result = self.request(url)
+		for ip in allowIpConfig:
 
-		with open(inputfile,'w') as f:
-			f.write(result)
+			url = 'http://'+ip+'/index.php/openapi/bot.homecenter.temporarynotice/push'
+
+			t = os.system(url)
+
+			if(t == 0):
+				result = self.request(url)
+
+				with open(inputfile,'w') as f:
+					f.write(result)
+			pass
 
 		return True
 
