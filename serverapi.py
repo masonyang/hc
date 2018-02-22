@@ -49,7 +49,7 @@ class serverapi(object):
 
 		for ip in allowIpConfig:
 
-			url = 'http://'+ip+'/index.php/openapi/bot.homecenter.temporarynotice/push'
+			url = 'curl http://'+ip+'/index.php/openapi/bot.homecenter.temporarynotice/push'
 
 			t = os.system(url)
 
