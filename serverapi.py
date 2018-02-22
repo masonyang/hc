@@ -58,6 +58,7 @@ class serverapi(object):
 
 				with open(inputfile,'w') as f:
 					f.write(result)
+				return True
 			pass
 
 		return True
