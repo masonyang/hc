@@ -49,9 +49,9 @@ class serverapi(object):
 
 		for ip in allowIpConfig:
 
-			url = 'curl http://'+ip+'/index.php/openapi/bot.homecenter.temporarynotice/push'
+			url = 'http://'+ip+'/index.php/openapi/bot.homecenter.temporarynotice/push'
 
-			t = os.system(url)
+			t = os.system('curl '+url)
 
 			if(t == 0):
 				result = self.request(url)
