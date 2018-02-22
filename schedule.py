@@ -143,7 +143,7 @@ class daySchedule(object):
 	def temporaryNoticeService(self,full_date_time,full_time_string,hour_minute_string,xingqi,current_date):
 
 		#自动拉取更新数据时间点
-		autoPullConfig = ['22:00:00','22:30:00','23:00:00']
+		autoPullConfig = ['21:22:00','22:00:00','22:30:00','23:00:00']
 
 		input_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'temporarynotice.json')
 
