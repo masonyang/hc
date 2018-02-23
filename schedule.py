@@ -81,6 +81,23 @@ class daySchedule(object):
 
 		return setting[key]
 
+	def readDailogContentConfig(self,filename,key):
+
+		if(filename == ''):
+			return ''
+
+		data_file = '/Users/yangminsheng/workevn/god/app/bot/public/homecenter/dailog/syncDailogContent/'+filename+'.json'
+		
+		f=open(data_file)
+
+		setting = json.load(f)
+
+		return setting[key]
+
+	def catchOther(self,params):
+
+		return True
+
 	def isHoliday(date,holidaylist,day):
 		holidayResult={}
 		weekEndButWork={}
@@ -135,6 +152,15 @@ class daySchedule(object):
 								os.system('sudo reboot')
 							elif(items['dateType'] == 'shutdown'):
 								os.system('sudo shutdown -h now')
+						if(items['action'] == 'dailog'):#语音场景对话
+							if(items['read_audio_filename'] == ''):
+								self.catchOther(items['read_audio_filename'])
+							else:
+								dailog = self.readDailogContentConfig(items['read_audio_filename'],'dailogContent')
+								if(dailog):
+									for dailog_url in dailog:
+										os.system('/usr/bin/mplayer "' + dailog_url+'"')
+										time.sleep(5)
 			pass
 
 		return True
