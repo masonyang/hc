@@ -127,10 +127,10 @@ class daySchedule(object):
 							u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'.format(items['sayNotice'].encode('utf-8'))
 							os.system('/usr/bin/mplayer "' + url+'"')
 
-						if(items['noticeMusic']):
+						if(items['noticeMusic']):#音乐播放
 							time.sleep(5)
 							os.system('/usr/bin/mplayer "'+items['noticeMusic']+'"')
-						if(items['action'] == 'server'):
+						if(items['action'] == 'server'):#树梅派服务器自带服务
 							if(items['dateType'] == 'reboot'):
 								os.system('sudo reboot')
 							elif(items['dateType'] == 'shutdown'):
