@@ -86,7 +86,7 @@ class daySchedule(object):
 		if(filename == ''):
 			return ''
 
-		data_file = '/Users/yangminsheng/workevn/god/app/bot/public/homecenter/dailog/syncDailogContent/'+filename+'.json'
+		data_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'syncDailogContent/'+filename+'.json'
 		
 		f=open(data_file)
 
