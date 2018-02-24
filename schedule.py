@@ -160,7 +160,7 @@ class daySchedule(object):
 								if(dailog):
 									for dailog_url in dailog:
 										os.system('/usr/bin/mplayer "' + dailog_url+'"')
-										time.sleep(5)
+										time.sleep(3)
 			pass
 
 		return True
