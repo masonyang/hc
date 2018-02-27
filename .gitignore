@@ -1,2 +1,9 @@
 temporarynotice.json
 dayschedule.json
+.idea/
+.idea/*
+test.json
+weather.pyc
+serverapi.pyc
+schedule.pyc
+hccore.pyc
