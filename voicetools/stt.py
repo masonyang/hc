@@ -285,18 +285,14 @@ class BaiduSTT(AbstractSTTEngine):
             token = r.json()['access_token']
             return token
         except requests.exceptions.HTTPError:
-            print('Token request failed with response: %r',
-                                  r.text,
-                                  exc_info=True)
+            print('Token request failed with response: %r',r.text)
             return ''
 
     def transcribe(self, fp):
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
-            print('wav file not found: %s',
-                                  fp,
-                                  exc_info=True)
+            print('wav file not found: %s',fp)
             return []
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
@@ -321,20 +317,17 @@ class BaiduSTT(AbstractSTTEngine):
             if 'result' in r.json():
                 text = r.json()['result'][0].encode('utf-8')
         except requests.exceptions.HTTPError:
-            print('Request failed with response: %r',
-                                  r.text,
-                                  exc_info=True)
+            print('Request failed with response: %r',r.text)
             return []
         except requests.exceptions.RequestException:
-            print('Request failed.', exc_info=True)
+            print('Request failed.')
             return []
         except ValueError as e:
             print('Cannot parse response: %s',
                                   e.args[0])
             return []
         except KeyError:
-            print('Cannot parse response.',
-                                  exc_info=True)
+            print('Cannot parse response.')
             return []
         else:
             transcribed = []
@@ -388,9 +381,7 @@ class IFlyTekSTT(AbstractSTTEngine):
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
-            print('wav file not found: %s',
-                                  fp,
-                                  exc_info=True)
+            print('wav file not found: %s'fp)
             return []
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
@@ -417,20 +408,17 @@ class IFlyTekSTT(AbstractSTTEngine):
             if r.json()['code'] == '00000':
                 text = r.json()['data']['result'].encode('utf-8')
         except requests.exceptions.HTTPError:
-            print('Request failed with response: %r',
-                                  r.text,
-                                  exc_info=True)
+            print('Request failed with response: %r',r.text)
             return []
         except requests.exceptions.RequestException:
-            print('Request failed.', exc_info=True)
+            print('Request failed.')
             return []
         except ValueError as e:
             print('Cannot parse response: %s',
                                   e.args[0])
             return []
         except KeyError:
-            print('Cannot parse response.',
-                                  exc_info=True)
+            print('Cannot parse response.')
             return []
         else:
             print('Cannot parse response.(code: %s)' %
@@ -493,9 +481,7 @@ class ALiBaBaSTT(AbstractSTTEngine):
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
-            print('wav file not found: %s',
-                                  fp,
-                                  exc_info=True)
+            print('wav file not found: %s',fp)
             return []
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
@@ -537,20 +523,17 @@ class ALiBaBaSTT(AbstractSTTEngine):
             if 'result' in r.json():
                 text = r.json()['result'].encode('utf-8')
         except requests.exceptions.HTTPError:
-            print('Request failed with response: %r',
-                                  r.text,
-                                  exc_info=True)
+            print('Request failed with response: %r',r.text)
             return []
         except requests.exceptions.RequestException:
-            print('Request failed.', exc_info=True)
+            print('Request failed.')
             return []
         except ValueError as e:
             print('Cannot parse response: %s',
                                   e.args[0])
             return []
         except KeyError:
-            print('Cannot parse response.',
-                                  exc_info=True)
+            print('Cannot parse response.')
             return []
         else:
             transcribed = []
@@ -795,7 +778,7 @@ class GoogleSTT(AbstractSTTEngine):
             print('Empty response: %s', e.args[0])
             results = []
         except (KeyError, IndexError):
-            print('Cannot parse response.', exc_info=True)
+            print('Cannot parse response.')
             results = []
         else:
             # Convert all results to uppercase
