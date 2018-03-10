@@ -332,7 +332,7 @@ class BaiduSTT(AbstractSTTEngine):
         else:
             transcribed = []
             if text:
-                transcribed.append(text.upper().encode('utf-8'))
+                transcribed.append(text.upper())
             print(u'百度语音识别到了: %s' % text.encode('utf-8'))
             return transcribed
 
