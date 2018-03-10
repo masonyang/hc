@@ -337,7 +337,7 @@ class BaiduSTT(AbstractSTTEngine):
             output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'baidu_test.json')
 
             with open(output_file, 'w') as out_file:
-                json.dump({'succ': text}, out_file)
+                json.dump({'succ': r.json()}, out_file)
             print('recive ok')
             return transcribed
 
