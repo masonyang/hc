@@ -187,7 +187,7 @@ class Mic:
                 print("异常:"+e.message)
                 continue
 
-        print('score:'+bytes(score)+' THRESHOLD:'+bytes(THRESHOLD))
+        # print('score:'+bytes(score)+' THRESHOLD:'+bytes(THRESHOLD))
 
         # no use continuing if no flag raised
         if not didDetect:
@@ -228,6 +228,8 @@ class Mic:
 
         transcribed = self.passive_stt_engine.transcribe_keyword(
             ''.join(frames))
+
+        print(transcribed)
 
         if transcribed is not None and \
            any(PERSONA in phrase for phrase in transcribed):
