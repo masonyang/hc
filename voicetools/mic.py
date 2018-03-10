@@ -187,7 +187,7 @@ class Mic:
                 print("异常:"+e.message)
                 continue
 
-        print('score:'+score+' THRESHOLD:'+THRESHOLD)
+        print('score:'+bytes(score)+' THRESHOLD:'+bytes(THRESHOLD))
 
         # no use continuing if no flag raised
         if not didDetect:
