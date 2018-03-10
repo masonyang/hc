@@ -381,7 +381,7 @@ class IFlyTekSTT(AbstractSTTEngine):
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
-            print('wav file not found: %s'fp)
+            print('wav file not found: %s',fp)
             return []
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
