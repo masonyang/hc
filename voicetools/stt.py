@@ -289,9 +289,6 @@ class BaiduSTT(AbstractSTTEngine):
             return ''
 
     def transcribe(self, fp):
-        reload(sys)
-        sys.setdefaultencoding('utf-8')
-
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
@@ -335,8 +332,8 @@ class BaiduSTT(AbstractSTTEngine):
         else:
             transcribed = []
             if text:
-                transcribed.append(text.upper())
-            print(u'百度语音识别到了: %s' % text)
+                transcribed.append(text.upper().encode('utf-8'))
+            print(u'百度语音识别到了: %s' % text.encode('utf-8'))
             return transcribed
 
     @classmethod
