@@ -238,8 +238,8 @@ class BaiduSTT(AbstractSTTEngine):
     SLUG = "baidu-stt"
 
     def __init__(self):
-        self.api_key = 'LMFYhLdXSSthxCNLR7uxFszQ'
-        self.secret_key = '14dbd10057xu7b256e537455698c0e4e'
+        self.api_key = 'I1wrYGlMfqpbg0oA8Klc4nKQ'
+        self.secret_key = 'd0cc95a09426d7f614bd7bab8e3594c8'
         self.token = ''
 
     @classmethod
