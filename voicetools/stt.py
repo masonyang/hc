@@ -31,7 +31,7 @@ except NameError:  # Python 3
     from importlib import reload
 
 reload(sys)
-sys.setdefaultencoding('utf8')
+sys.setdefaultencoding('utf-8')
 
 
 class AbstractSTTEngine(object):
