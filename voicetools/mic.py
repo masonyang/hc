@@ -173,7 +173,7 @@ class Mic:
 
             try:
                 if self.stop_passive:
-                    self._logger.debug('stop passive')
+                    print('stop passive')
                     break
 
                 data = stream.read(CHUNK)
@@ -186,6 +186,8 @@ class Mic:
             except Exception as e:
                 print("异常:"+e.message)
                 continue
+
+        print('score:'+score+' THRESHOLD:'+THRESHOLD)
 
         # no use continuing if no flag raised
         if not didDetect:
@@ -212,7 +214,7 @@ class Mic:
                 data = stream.read(CHUNK)
                 frames.append(data)
             except Exception as e:
-                self._logger.debug(e)
+                print("异常:"+e.message)
                 continue
 
         # save the audio data
@@ -221,7 +223,7 @@ class Mic:
             stream.stop_stream()
             stream.close()
         except Exception as e:
-            self._logger.debug(e)
+            print("异常:"+e.message)
             pass
 
         transcribed = self.passive_stt_engine.transcribe_keyword(
@@ -301,7 +303,7 @@ class Mic:
             stream.stop_stream()
             stream.close()
         except Exception as e:
-            self._logger.debug(e)
+            print("异常:"+e.message)
             pass
 
         with tempfile.SpooledTemporaryFile(mode='w+b') as f:
