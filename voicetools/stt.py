@@ -571,7 +571,7 @@ class SnowboySTT(AbstractSTTEngine):
         self.resource_file = os.path.join(dingdangpath.LIB_PATH,
                                           'snowboy/common.res')
         try:
-            from snowboy import snowboydetect
+            from .snowboy import snowboydetect
         except Exception as e:
             print("异常")
             if 'libf77blas.so' in e.message:
