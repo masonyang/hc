@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+import sys
+import conversation
+import mic
+import stt
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+if __name__ == '__main__':
+
+	persona = 'DINGDANG'
+
+	stt_engine_slug = 'baidu-stt'
+	
+	stt_engine_class = stt.get_engine_by_slug(stt_engine_slug)
+	stt_passive_engine_class = stt_engine_class
+	
+	micphone = mic.Mic(stt_passive_engine_class.get_passive_instance(),stt_engine_class.get_active_instance())
+
+	conver_sation = conversation.conversation(persona,micphone)
+	conver_sation.handleForever()
