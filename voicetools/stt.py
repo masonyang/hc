@@ -289,6 +289,9 @@ class BaiduSTT(AbstractSTTEngine):
             return ''
 
     def transcribe(self, fp):
+        reload(sys)
+        sys.setdefaultencoding('utf-8')
+
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
