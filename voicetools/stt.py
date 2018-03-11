@@ -288,12 +288,13 @@ class BaiduSTT(AbstractSTTEngine):
             print('Token request failed with response: %r',r.text)
             return ''
 
-    def transcribe(self, fp):
+    def transcribe(self, wav_file):
         try:
-            wav_file = wave.open(fp, 'rb')
+            wav_file = open(wav_file, 'rb')
         except IOError:
-            print('wav file not found: %s',fp)
+            print('wav file not found: %s',wav_file)
             return []
+        wav_file = wave.open(wav_file)
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
 
