@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
 	persona = 'DINGDANG'
 
-	stt_engine_slug = 'snowboy-stt'
+	stt_engine_slug = 'baidu-stt'
 	
 	stt_engine_class = stt.get_engine_by_slug(stt_engine_slug)
 	stt_passive_engine_class = stt_engine_class

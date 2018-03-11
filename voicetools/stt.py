@@ -308,6 +308,12 @@ class BaiduSTT(AbstractSTTEngine):
                 "cuid": str(get_mac())[:32],
                 "channel": 1}
         data = json.dumps(data)
+
+        output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'baidu_test.json')
+
+        with open(output_file, 'w') as out_file:
+            json.dump({'succ': data}, out_file)
+
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
                           headers={'content-type': 'application/json'})
@@ -334,10 +340,6 @@ class BaiduSTT(AbstractSTTEngine):
             if text:
                 transcribed.append(text.upper())
             # print(u'百度语音识别到了: %s' % text.encode('utf-8'))
-            output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'baidu_test.json')
-
-            with open(output_file, 'w') as out_file:
-                json.dump({'succ': r.json()}, out_file)
             print('recive ok')
             return transcribed
 
