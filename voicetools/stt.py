@@ -299,59 +299,50 @@ class BaiduSTT(AbstractSTTEngine):
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
 
-        # if n_frames != 1 or frame_rate not in (8000, 16000):
-        #     print('must be wav'+bytes(n_frames)+'---'+bytes(frame_rate))
-        #     return []
-
         audio = wav_file.readframes(n_frames)
-        seconds = n_frames/frame_rate+1
-        minute = seconds/60 + 1
+        base_data = base64.b64encode(audio)
+        if self.token == '':
+            self.token = self.get_token()
+        data = {"format": "wav",
+                "token": self.token,
+                "len": len(audio),
+                "rate": frame_rate,
+                "speech": base_data,
+                "cuid": str(get_mac())[:32],
+                "channel": 1}
+        data = json.dumps(data)
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+        except requests.exceptions.HTTPError:
+            print('Request failed with response: %r',r.text)
+            return []
+        except requests.exceptions.RequestException:
+            print('Request failed.')
+            return []
+        except ValueError as e:
+            print('Cannot parse response: %s',
+                                  e.args[0])
+            return []
+        except KeyError:
+            print('Cannot parse response.')
+            return []
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            # print(u'百度语音识别到了: %s' % text.encode('utf-8'))
+            output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'baidu_test.json')
 
-        for i in range(0, minute):
-            sub_audio = audio[i*60*frame_rate:(i+1)*60*frame_rate]
-            base_data = base64.b64encode(sub_audio)
-            if self.token == '':
-                self.token = self.get_token()
-            data = {"format": "wav",
-                    "token": self.token,
-                    "len": len(sub_audio),
-                    "rate": frame_rate,
-                    "speech": base_data,
-                    "cuid": str(get_mac())[:32],
-                    "channel": 1}
-            data = json.dumps(data)
-            r = requests.post('http://vop.baidu.com/server_api',
-                              data=data,
-                              headers={'content-type': 'application/json'})
-            try:
-                r.raise_for_status()
-                text = ''
-                if 'result' in r.json():
-                    text = r.json()['result'][0].encode('utf-8')
-            except requests.exceptions.HTTPError:
-                print('Request failed with response: %r',r.text)
-                return []
-            except requests.exceptions.RequestException:
-                print('Request failed.')
-                return []
-            except ValueError as e:
-                print('Cannot parse response: %s',
-                                      e.args[0])
-                return []
-            except KeyError:
-                print('Cannot parse response.')
-                return []
-            else:
-                transcribed = []
-                if text:
-                    transcribed.append(text.upper())
-                # print(u'百度语音识别到了: %s' % text.encode('utf-8'))
-                output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'baidu_test.json')
-
-                with open(output_file, 'w') as out_file:
-                    json.dump({'succ': r.json()}, out_file)
-                print('recive ok')
-                return transcribed
+            with open(output_file, 'w') as out_file:
+                json.dump({'succ': r.json()}, out_file)
+            print('recive ok')
+            return transcribed
 
     @classmethod
     def is_available(cls):
