@@ -300,7 +300,7 @@ class BaiduSTT(AbstractSTTEngine):
         frame_rate = wav_file.getframerate()
 
         if n_frames != 1 or frame_rate not in (8000, 16000):
-            print('must be wav')
+            print('must be wav'+bytes(n_frames)+'---'+bytes(frame_rate))
             return []
 
         audio = wav_file.readframes(n_frames)
