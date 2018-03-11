@@ -289,7 +289,7 @@ class BaiduSTT(AbstractSTTEngine):
             return ''
 
     def transcribe(self, fp):
-        demo_wav = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'demo.wav')
+        demo_wav = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'awake.wav')
         try:
             wav_file = open(demo_wav, 'rb')
         except IOError:
