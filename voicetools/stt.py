@@ -289,11 +289,11 @@ class BaiduSTT(AbstractSTTEngine):
             return ''
 
     def transcribe(self, wav_file):
-        try:
-            wav_file = open(wav_file, 'rb')
-        except IOError:
-            print('wav file not found: %s',wav_file)
-            return []
+        # try:
+        #     wav_file = open(wav_file, 'rb')
+        # except IOError:
+        #     print('wav file not found: %s',wav_file)
+        #     return []
         wav_file = wave.open(wav_file)
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
