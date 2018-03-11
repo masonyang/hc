@@ -294,7 +294,7 @@ class BaiduSTT(AbstractSTTEngine):
         # except IOError:
         #     print('wav file not found: %s',wav_file)
         #     return []
-        wav_file = wave.open(wav_file)
+        wav_file = wave.open(wav_file,'rb')
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
 
