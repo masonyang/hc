@@ -279,6 +279,12 @@ class Mic:
         CHUNK = 1024
         LISTEN_TIME = 12
 
+        CHANNELS = 1
+        
+        record_second = 5
+
+        file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_content.wav')
+
         # check if no threshold provided
         if THRESHOLD is None:
             THRESHOLD = self.fetchThreshold()
@@ -323,20 +329,20 @@ class Mic:
         try:
             stream.stop_stream()
             stream.close()
+            self._audio.terminate()
+
+            wf = wave.open(file_path,'wb')
+            wf.setframerate(RATE)
+            wf.setnchannels(CHANNELS)
+            wf.setsampwidth(self._audio.get_sample_size(pyaudio.paInt16))
+            wf.writeframes(b''.join(frames))
+
+            wf.close()
         except Exception as e:
             print("异常:"+e.message)
             pass
 
-        with tempfile.SpooledTemporaryFile(mode='w+b') as f:
-            wav_fp = wave.open(f, 'wb')
-            wav_fp.setnchannels(1)
-            wav_fp.setsampwidth(pyaudio.get_sample_size(pyaudio.paInt16))
-            wav_fp.setframerate(RATE)
-            wav_fp.writeframes(''.join(frames))
-            wav_fp.close()
-            f.seek(0)
-            frames = []
-            return self.active_stt_engine.transcribe(f)
+        return self.active_stt_engine.transcribe(f)
 
     def say(self, phrase,
             OPTIONS=" -vdefault+m3 -p 40 -s 160 --stdout > say.wav",

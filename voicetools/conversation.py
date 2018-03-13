@@ -24,11 +24,11 @@ class conversation(object):
 			else:
 				print("Keyword '%s' has been said!", self.persona)
 
-			# input = self.mic.activeListenToAllOptions(threshold)
+			input = self.mic.activeListenToAllOptions(threshold)
 
-			# if input:
-			# 	print(input)
-			# else:
-			# 	print("什么?")
+			if input:
+				print(input)
+			else:
+				print("什么?")
 
 
