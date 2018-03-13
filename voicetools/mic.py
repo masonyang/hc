@@ -122,14 +122,22 @@ class Mic:
         """
 
         THRESHOLD_MULTIPLIER = 2.5
+        
         RATE = 16000
+
         CHUNK = 1024
+
+        file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_awakekw.wav')
 
         # number of seconds to allow to establish threshold
         THRESHOLD_TIME = 1
 
         # number of seconds to listen before forcing restart
         LISTEN_TIME = 10
+
+        CHANNELS = 1
+        
+        record_second = 5
 
         # prepare recording stream
         stream = self._audio.open(format=pyaudio.paInt16,
@@ -224,39 +232,18 @@ class Mic:
             # self.stop_passive = False
             stream.stop_stream()
             stream.close()
+            self._audio.terminate()
+
+            wf = wave.open(file_path,'wb')
+            wf.setframerate(RATE)
+            wf.setnchannels(CHANNELS)
+            wf.setsampwidth(self._audio.get_sample_size(pyaudio.paInt16))
+            wf.writeframes(b''.join(frames))
+
+            wf.close()
         except Exception as e:
             print("异常:"+e.message)
             pass
-
-        file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_awakekw.wav')
-
-        FORMAT = pyaudio.paInt16
-        CHANNELS = 1
-        record_second = 5
-
-        stream = self._audio.open(format=FORMAT,
-                         channels = CHANNELS,
-                         rate = RATE,
-                         input=True,
-                         frames_per_buffer = CHUNK)
-
-        sava_buffer = []
-
-        for i in range(0,int(RATE/CHUNK*record_second)):
-            audio_data = stream.read(CHUNK)
-            sava_buffer.append(audio_data)
-
-        stream.stop_stream()
-        stream.close()
-        self._audio.terminate()
-
-        wf = wave.open(file_path,'wb')
-        wf.setframerate(RATE)
-        wf.setnchannels(CHANNELS)
-        wf.setsampwidth(self._audio.get_sample_size(FORMAT))
-        wf.writeframes(b''.join(sava_buffer))
-
-        wf.close()
 
         transcribed = self.passive_stt_engine.transcribe_keyword(
             ''.join(frames))
