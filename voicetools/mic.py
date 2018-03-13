@@ -232,7 +232,6 @@ class Mic:
             # self.stop_passive = False
             stream.stop_stream()
             stream.close()
-            # self._audio.terminate()
 
             wf = wave.open(file_path,'wb')
             wf.setframerate(RATE)
@@ -329,7 +328,6 @@ class Mic:
         try:
             stream.stop_stream()
             stream.close()
-            self._audio.terminate()
 
             wf = wave.open(file_path,'wb')
             wf.setframerate(RATE)
