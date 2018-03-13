@@ -290,7 +290,7 @@ class BaiduSTT(AbstractSTTEngine):
             return ''
 
     def transcribe(self, fp):
-        demo_wav = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'awake.wav')
+        demo_wav = os.path.join(dingdangpath.DATA_PATH,'audio/listen_awakekw.wav')
         try:
             wav_file = open(demo_wav, 'rb')
         except IOError:
@@ -395,11 +395,13 @@ class BaiduSTT(AbstractSTTEngine):
             transcribed = []
             if text:
                 transcribed.append(text.upper())
-            print(u'百度语音识别到了: %s' % text.encode('utf-8'))
+
             output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
 
             with open(output_file, 'w') as out_file:
                 json.dump({'succ': r.json()}, out_file)
+
+            print(u'百度语音识别到了: %s' % text.encode('utf-8'))
             # print('BaiduSTT 识别到了：%r', transcribed)
             return transcribed
 
