@@ -349,62 +349,59 @@ class BaiduSTT(AbstractSTTEngine):
 
         file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_awakekw.wav')
 
-        return True
-        
-        # try:
-        #     wav_file = open(file_path, 'rb')
-        # except IOError:
-        #     print('wav file not found: %s',wav_file)
-        #     return []
-        # wav_file = wave.open(wav_file,'rb')
-        # n_frames = wav_file.getnframes()
-        # frame_rate = wav_file.getframerate()
+        try:
+            wav_file = open(file_path, 'rb')
+        except IOError:
+            print('wav file not found: %s',wav_file)
+            return []
+        wav_file = wave.open(wav_file,'rb')
+        n_frames = wav_file.getnframes()
+        frame_rate = wav_file.getframerate()
 
-        # audio = wav_file.readframes(n_frames)
-        # base_data = base64.b64encode(audio)
-        # if self.token == '':
-        #     self.token = self.get_token()
-        # data = {"format": "wav",
-        #         "token": self.token,
-        #         "len": len(audio),
-        #         "rate": frame_rate,
-        #         "speech": base_data,
-        #         "cuid": str(get_mac())[:32],
-        #         "channel": 1}
-        # data = json.dumps(data)
-        # r = requests.post('http://vop.baidu.com/server_api',
-        #                   data=data,
-        #                   headers={'content-type': 'application/json'})
-        # try:
-        #     r.raise_for_status()
-        #     text = ''
-        #     if 'result' in r.json():
-        #         text = r.json()['result'][0].encode('utf-8')
-        # except requests.exceptions.HTTPError:
-        #     print('Request failed with response: %r',r.text)
-        #     return []
-        # except requests.exceptions.RequestException:
-        #     print('Request failed.')
-        #     return []
-        # except ValueError as e:
-        #     print('Cannot parse response: %s',
-        #                           e.args[0])
-        #     return []
-        # except KeyError:
-        #     print('Cannot parse response.')
-        #     return []
-        # else:
-        #     transcribed = []
-        #     if text:
-        #         transcribed.append(text.upper())
-        #     # print(u'百度语音识别到了: %s' % text.encode('utf-8'))
-        #     output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
+        audio = wav_file.readframes(n_frames)
+        base_data = base64.b64encode(audio)
+        if self.token == '':
+            self.token = self.get_token()
+        data = {"format": "wav",
+                "token": self.token,
+                "len": len(audio),
+                "rate": frame_rate,
+                "speech": base_data,
+                "cuid": str(get_mac())[:32],
+                "channel": 1}
+        data = json.dumps(data)
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+        except requests.exceptions.HTTPError:
+            print('Request failed with response: %r',r.text)
+            return []
+        except requests.exceptions.RequestException:
+            print('Request failed.')
+            return []
+        except ValueError as e:
+            print('Cannot parse response: %s',
+                                  e.args[0])
+            return []
+        except KeyError:
+            print('Cannot parse response.')
+            return []
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print(u'百度语音识别到了: %s' % text.encode('utf-8'))
+            output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
 
-        #     with open(output_file, 'w') as out_file:
-        #         json.dump({'succ': r.json()}, out_file)
-        #     print('BaiduSTT 识别到了')
-        #     # print('BaiduSTT 识别到了：%r', transcribed)
-        #     return transcribed
+            with open(output_file, 'w') as out_file:
+                json.dump({'succ': r.json()}, out_file)
+            # print('BaiduSTT 识别到了：%r', transcribed)
+            return transcribed
 
     @classmethod
     def is_available(cls):
