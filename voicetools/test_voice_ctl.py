@@ -127,9 +127,9 @@ def baiduys(object):
 if __name__ =='__main__':
     to_dir = './'
     file_path = record_wav(to_dir)
-    file_path1 = 'C:\\Users\eexf\PycharmProjects\mcc'+file_path
+    # file_path1 = 'C:\\Users\eexf\PycharmProjects\mcc'+file_path
 
-    text = baiduys(file_path1)
-    print(text)
+    # text = baiduys(file_path1)
+    # print(text)
 
-    text_open_browser(text)
+    # text_open_browser(text)
