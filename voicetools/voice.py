@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+#https://www.cnblogs.com/jokerspace/p/6685388.html
 
 import sys
 import conversation
