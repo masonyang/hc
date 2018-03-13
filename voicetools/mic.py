@@ -232,15 +232,15 @@ class Mic:
             # self.stop_passive = False
             stream.stop_stream()
             stream.close()
-            self._audio.terminate()
+            # self._audio.terminate()
 
-            wf = wave.open(file_path,'wb')
-            wf.setframerate(RATE)
-            wf.setnchannels(CHANNELS)
-            wf.setsampwidth(self._audio.get_sample_size(pyaudio.paInt16))
-            wf.writeframes(b''.join(frames))
+            # wf = wave.open(file_path,'wb')
+            # wf.setframerate(RATE)
+            # wf.setnchannels(CHANNELS)
+            # wf.setsampwidth(self._audio.get_sample_size(pyaudio.paInt16))
+            # wf.writeframes(b''.join(frames))
 
-            wf.close()
+            # wf.close()
         except Exception as e:
             print("异常:"+e.message)
             pass
