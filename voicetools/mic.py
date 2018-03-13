@@ -8,6 +8,7 @@ import audioop
 import time
 import pyaudio
 import mute_alsa
+import os
 
 try:
     reload         # Python 2
