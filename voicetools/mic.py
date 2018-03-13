@@ -340,7 +340,7 @@ class Mic:
             print("异常:"+e.message)
             pass
 
-        return self.active_stt_engine.transcribe(f)
+        return self.active_stt_engine.transcribe(frames)
 
     def say(self, phrase,
             OPTIONS=" -vdefault+m3 -p 40 -s 160 --stdout > say.wav",
