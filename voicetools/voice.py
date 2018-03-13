@@ -12,7 +12,7 @@ sys.setdefaultencoding('utf-8')
 
 if __name__ == '__main__':
 
-	persona = 'DINGDANG'
+	persona = '丁丁'
 
 	stt_engine_slug = 'baidu-stt'
 	

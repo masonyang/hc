@@ -396,10 +396,10 @@ class BaiduSTT(AbstractSTTEngine):
             if text:
                 transcribed.append(text.upper())
 
-            output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
+            # output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
 
-            with open(output_file, 'w') as out_file:
-                json.dump({'succ': r.json()}, out_file)
+            # with open(output_file, 'w') as out_file:
+            #     json.dump({'succ': r.json()}, out_file)
 
             print(u'百度语音识别到了: %s' % text.encode('utf-8'))
             # print('BaiduSTT 识别到了：%r', transcribed)
