@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8-*-
 import base64
 from datetime import datetime
 import json
@@ -9,6 +11,14 @@ import webbrowser
 
 import pyaudio
 import re
+
+try:
+    reload         # Python 2
+except NameError:  # Python 3
+    from importlib import reload
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
