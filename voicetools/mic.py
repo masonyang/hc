@@ -9,6 +9,7 @@ import time
 import pyaudio
 import mute_alsa
 import os
+import dingdangpath
 
 try:
     reload         # Python 2
