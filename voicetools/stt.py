@@ -349,39 +349,8 @@ class BaiduSTT(AbstractSTTEngine):
 
         file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_awakekw.wav')
 
-        CHUNK = 1024
-        FORMAT = pyaudio.paInt16
-        RATE = 16000
-        CHANNELS = 1
-        record_second = 5
-
-        pa = pyaudio.PyAudio()
-
-        stream = pa.open(format=FORMAT,
-                         channels = CHANNELS,
-                         rate = RATE,
-                         input=True,
-                         frames_per_buffer = CHUNK)
-
-        sava_buffer = []
-
-        for i in range(0,int(RATE/CHUNK*record_second)):
-            audio_data = stream.read(CHUNK)
-            sava_buffer.append(audio_data)
-
-        stream.stop_stream()
-        stream.close()
-        pa.terminate()
-
-        wf = wave.open(file_path,'wb')
-        wf.setframerate(RATE)
-        wf.setnchannels(CHANNELS)
-        wf.setsampwidth(pa.get_sample_size(FORMAT))
-        wf.writeframes(b''.join(sava_buffer))
-
-        wf.close()
-        print(file_path)
         return True
+        
         # try:
         #     wav_file = open(file_path, 'rb')
         # except IOError:
