@@ -36,7 +36,6 @@ class conversation(object):
 				input = self.mic.activeListenToAllOptions(threshold)
 
 				if input:
-					self.mic.say(input)
 					self.brain.query(input)
 				else:
 					self.mic.say("什么?")
