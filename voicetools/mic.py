@@ -280,7 +280,7 @@ class Mic:
 
         CHANNELS = 1
         
-        record_second = 1
+        record_second = 5
 
         file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_content.wav')
 
@@ -324,11 +324,9 @@ class Mic:
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
         DELAY_MULTIPLIER = 1
-        for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
+        for i in range(0, RATE / CHUNK * record_second):
 
             try:
-                if self.stop_passive:
-                    break
                 data = stream.read(CHUNK, exception_on_overflow=False)
                 frames.append(data)
             except Exception as e:
