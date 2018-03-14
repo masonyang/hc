@@ -343,7 +343,7 @@ class BaiduSTT(AbstractSTTEngine):
             # with open(output_file, 'w') as out_file:
             #     json.dump({'succ': r.json()}, out_file)
             # print('recive ok')
-            return transcribed
+            return text.encode('utf-8')
 
     def transcribe_keyword(self,pdata):
 
