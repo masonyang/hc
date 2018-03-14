@@ -295,7 +295,7 @@ class Mic:
                                   input=True,
                                   frames_per_buffer=CHUNK)
 
-        self.say(dingdangpath.data('audio', 'beep_hi.wav'),True)
+        # self.say(dingdangpath.data('audio', 'beep_hi.wav'),True)
 
         frames = []
         # increasing the range # results in longer pause after command
@@ -321,17 +321,17 @@ class Mic:
                 continue
 
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
-        self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
+        # self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
-        DELAY_MULTIPLIER = 1
-        for i in range(0, RATE / CHUNK * record_second):
+        # DELAY_MULTIPLIER = 1
+        # for i in range(0, RATE / CHUNK * record_second):
 
-            try:
-                data = stream.read(CHUNK, exception_on_overflow=False)
-                frames.append(data)
-            except Exception as e:
-                print("异常:"+e.message)
-                continue
+        #     try:
+        #         data = stream.read(CHUNK, exception_on_overflow=False)
+        #         frames.append(data)
+        #     except Exception as e:
+        #         print("异常:"+e.message)
+        #         continue
 
         # save the audio data
         try:
