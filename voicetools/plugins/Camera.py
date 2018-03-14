@@ -5,6 +5,7 @@ import os
 import subprocess
 import time
 import sys
+import dingdangpath
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -62,7 +63,7 @@ def handle(text, mic, profile):
             mic.say(u"拍照失败，请检查相机是否连接正确")
         return
     if sound:
-        mic.play(mic.dingdangpath.data('audio', 'camera.wav'))
+        mic.play(dingdangpath.data('audio', 'camera.wav'))
 
 
 def isValid(text):
