@@ -323,8 +323,6 @@ class Mic:
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
-        frames = frames[-20:]
-
         DELAY_MULTIPLIER = 1
         for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
 
