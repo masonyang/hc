@@ -27,8 +27,8 @@ class conversation(object):
 			input = self.mic.activeListenToAllOptions(threshold)
 
 			if input:
-				print(input)
+				self.mic.say(input)
 			else:
-				print("什么?")
+				self.mic.say("什么?")
 
 

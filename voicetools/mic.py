@@ -295,8 +295,7 @@ class Mic:
                                   input=True,
                                   frames_per_buffer=CHUNK)
 
-        # self.speaker.play(dingdangpath.data('audio', 'beep_hi.wav'))
-        print("beep_hi.wav")
+        self.say(dingdangpath.data('audio', 'beep_hi.wav'),True)
 
         frames = []
         # increasing the range # results in longer pause after command
@@ -322,7 +321,7 @@ class Mic:
                 continue
 
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
-        print("beep_lo.wav")
+        self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
         # save the audio data
         try:
@@ -342,19 +341,18 @@ class Mic:
 
         return self.active_stt_engine.transcribe(frames)
 
-    def say(self, phrase,
-            OPTIONS=" -vdefault+m3 -p 40 -s 160 --stdout > say.wav",
-            cache=False):
+    def say(self, phrase, isaudio=False):
         print(u"机器人说：%s" % phrase)
         self.stop_passive = True
-        # incase calling say() method which
-        # have not implement cache feature yet.
-        # the count of args should be 3.
-        # if self.speaker.say.__code__.co_argcount > 2:
-        #     self.speaker.say(phrase, cache)
-        # else:
-        #     self.speaker.say(phrase)
-        # time.sleep(1)  # 避免叮当说话时误唤醒
+
+        if(isaudio):
+            os.system('/usr/bin/aplay '+phrase)
+        else:
+            url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
+            u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'.format(phrase.encode('utf-8'))
+            os.system('/usr/bin/mplayer "' + url+'"')
+
+        time.sleep(1)  # 避免叮当说话时误唤醒
         self.stop_passive = False
 
     def play(self, src):
