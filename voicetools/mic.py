@@ -323,18 +323,18 @@ class Mic:
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
-        frames = frames[-20:]
+        # frames = frames[-20:]
 
-        # otherwise, let's keep recording for few seconds and save the file
-        DELAY_MULTIPLIER = 1
-        for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
+        # # otherwise, let's keep recording for few seconds and save the file
+        # DELAY_MULTIPLIER = 1
+        # for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
 
-            try:
-                data = stream.read(CHUNK)
-                frames.append(data)
-            except Exception as e:
-                print("异常:"+e.message)
-                continue
+        #     try:
+        #         data = stream.read(CHUNK)
+        #         frames.append(data)
+        #     except Exception as e:
+        #         print("异常:"+e.message)
+        #         continue
 
         # save the audio data
         try:
