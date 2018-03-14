@@ -323,14 +323,10 @@ class Mic:
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
-        frames = []
-        
         DELAY_MULTIPLIER = 1
         for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
 
             try:
-                if self.stop_passive:
-                    break
                 data = stream.read(CHUNK)
                 frames.append(data)
             except Exception as e:
