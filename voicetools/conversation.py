@@ -37,7 +37,7 @@ class conversation(object):
 
 				if input:
 					self.mic.say(input)
-					self.brain.query(input,self.mic,self.profile)
+					self.brain.query(input)
 				else:
 					self.mic.say("什么?")
 

@@ -24,7 +24,7 @@ def handle(text, mic, profile):
 
     time_now = datetime.datetime.now()
     full_time_string = time_now.strftime('%H:%M:%S')
-    mic.say("现在时间是 ")
+    mic.say(u"现在时间是 %s " % full_time_string)
 
 
 def isValid(text):
