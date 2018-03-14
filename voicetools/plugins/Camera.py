@@ -63,7 +63,7 @@ def handle(text, mic, profile):
             mic.say(u"拍照失败，请检查相机是否连接正确")
         return
     if sound:
-        mic.say(dingdangpath.data('audio', 'camera.wav'))
+        mic.say(dingdangpath.data('audio', 'camera.wav'),True)
 
 
 def isValid(text):
