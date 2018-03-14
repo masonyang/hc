@@ -14,6 +14,8 @@ if __name__ == '__main__':
 
 	persona = '丁丁'
 
+	profile = []
+
 	stt_engine_slug = 'baidu-stt'
 	
 	stt_engine_class = stt.get_engine_by_slug(stt_engine_slug)
@@ -21,5 +23,5 @@ if __name__ == '__main__':
 	
 	micphone = mic.Mic(stt_passive_engine_class.get_passive_instance(),stt_engine_class.get_active_instance())
 
-	conver_sation = conversation.conversation(persona,micphone)
+	conver_sation = conversation.conversation(persona,micphone,profile)
 	conver_sation.handleForever()

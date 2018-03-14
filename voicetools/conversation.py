@@ -2,15 +2,18 @@
 # coding: utf-8
 
 import sys
+import brain
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 class conversation(object):
 	"""docstring for conversation"""
-	def __init__(self,persona,mic):
+	def __init__(self,persona,mic,profile):
 		self.mic = mic
 		self.persona = persona
+		self.profile = profile
+		self.brain = brain.Brain(mic, profile)
 
 	def handleForever(self):
 
@@ -34,6 +37,7 @@ class conversation(object):
 
 				if input:
 					self.mic.say(input)
+					self.brain.query(input,self.mic,self.profile)
 				else:
 					self.mic.say("什么?")
 
