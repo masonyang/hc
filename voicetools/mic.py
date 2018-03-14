@@ -304,7 +304,7 @@ class Mic:
 
         for i in range(0, RATE / CHUNK * LISTEN_TIME):
             try:
-                data = stream.read(CHUNK, exception_on_overflow=False)
+                data = stream.read(CHUNK)
                 frames.append(data)
                 score = self.getScore(data)
 
@@ -323,12 +323,6 @@ class Mic:
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
-        sava_buffer = []
-
-        for i in range(0,int(RATE/CHUNK*record_second)):
-            audio_data = stream.read(CHUNK)
-            sava_buffer.append(audio_data)
-
         # save the audio data
         try:
             stream.stop_stream()
@@ -338,7 +332,7 @@ class Mic:
             wf.setframerate(RATE)
             wf.setnchannels(CHANNELS)
             wf.setsampwidth(self._audio.get_sample_size(pyaudio.paInt16))
-            wf.writeframes(b''.join(sava_buffer))
+            wf.writeframes(b''.join(frames))
 
             wf.close()
         except Exception as e:
