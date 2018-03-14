@@ -24,7 +24,7 @@ def handle(text, mic, profile):
                    number)
         wxbot -- wechat bot instance
     """
-    sys.path.append(mic.dingdangpath.LIB_PATH)
+    # sys.path.append(mic.dingdangpath.LIB_PATH)
 
     quality = 100
     count_down = 3

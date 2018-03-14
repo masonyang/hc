@@ -101,8 +101,8 @@ class Brain(object):
                     plugin.handle(texts, self.mic, self.profile)
                     self.handling = False
                     return
-                except Exception:
-                    print('Failed to execute plugin')
+                except Exception,e:
+                    print('Failed to execute plugin'+e.message)
                     reply = u"抱歉，我的大脑出故障了，晚点再试试吧"
                     self.mic.say(reply)
                     return
