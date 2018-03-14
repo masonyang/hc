@@ -229,11 +229,7 @@ class BaiduSTT(AbstractSTTEngine):
     要使用本模块, 首先到 yuyin.baidu.com 注册一个开发者账号,
     之后创建一个新应用, 然后在应用管理的"查看key"中获得 API Key 和 Secret Key
     填入 profile.xml 中.
-    ...
-        baidu_yuyin: 'AIzaSyDoHmTEToZUQrltmORWS4Ott0OHVA62tw8'
-            api_key: 'LMFYhLdXSSthxCNLR7uxFszQ'
-            secret_key: '14dbd10057xu7b256e537455698c0e4e'
-        ...
+
     """
 
     SLUG = "baidu-stt"
