@@ -339,7 +339,7 @@ class Mic:
             print("异常:"+e.message)
             pass
 
-        return self.active_stt_engine.transcribe(frames)
+        return '拍照'#self.active_stt_engine.transcribe(frames)
 
     def say(self, phrase, isaudio=False):
         print(u"机器人说：%s" % phrase)

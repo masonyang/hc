@@ -28,11 +28,11 @@ def handle(text, mic, profile):
 
     quality = 100
     count_down = 3
-    dest_path = os.path.expanduser('~/pictures')
+    dest_path = os.path.expanduser('~/Pictures')
     vertical_flip = False
     horizontal_flip = False
     sound = True
-    usb_camera = False
+    usb_camera = True
     # read config
     if profile[SLUG] and 'enable' in profile[SLUG] and \
        profile[SLUG]['enable']:
@@ -63,7 +63,7 @@ def handle(text, mic, profile):
             if not os.path.exists(dest_path):
                 os.makedirs(dest_path)
         except Exception:
-            mic.say(u"抱歉，照片目录创建失败", cache=True)
+            mic.say(u"抱歉，照片目录创建失败")
             return
         dest_file = os.path.join(dest_path, "%s.jpg" % time.time())
         if usb_camera:
@@ -82,7 +82,7 @@ def handle(text, mic, profile):
             if horizontal_flip:
                 command.append('-hf')
         if sound and count_down > 0:
-            mic.say(u"收到，%d秒后启动拍照" % (count_down), cache=True)
+            mic.say(u"收到，%d秒后启动拍照" % (count_down))
             if usb_camera:
                 time.sleep(count_down)
 
@@ -90,12 +90,12 @@ def handle(text, mic, profile):
         res = process.wait()
         if res != 0:
             if sound:
-                mic.say(u"拍照失败，请检查相机是否连接正确", cache=True)
+                mic.say(u"拍照失败，请检查相机是否连接正确")
             return
         if sound:
             mic.play(mic.dingdangpath.data('audio', 'camera.wav'))
     else:
-        mic.say(u"请先在配置文件中开启相机拍照功能", cache=True)
+        mic.say(u"请先在配置文件中开启相机拍照功能")
 
 
 def isValid(text):
