@@ -280,7 +280,7 @@ class Mic:
 
         CHANNELS = 1
         
-        record_second = 5
+        record_second = 1
 
         file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_content.wav')
 
@@ -323,18 +323,11 @@ class Mic:
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
-        # frames = frames[-20:]
+        sava_buffer = []
 
-        # # otherwise, let's keep recording for few seconds and save the file
-        # DELAY_MULTIPLIER = 1
-        # for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
-
-        #     try:
-        #         data = stream.read(CHUNK)
-        #         frames.append(data)
-        #     except Exception as e:
-        #         print("异常:"+e.message)
-        #         continue
+        for i in range(0,int(RATE/CHUNK*record_second)):
+            audio_data = stream.read(CHUNK)
+            sava_buffer.append(audio_data)
 
         # save the audio data
         try:
@@ -345,7 +338,7 @@ class Mic:
             wf.setframerate(RATE)
             wf.setnchannels(CHANNELS)
             wf.setsampwidth(self._audio.get_sample_size(pyaudio.paInt16))
-            wf.writeframes(b''.join(frames))
+            wf.writeframes(b''.join(sava_buffer))
 
             wf.close()
         except Exception as e:
