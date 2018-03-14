@@ -25,6 +25,7 @@ class Brain(object):
         self.mic = mic
         self.profile = profile
         (self.plugins, self.exclude_plugins) = self.get_plugins()
+        print(self.plugins)
         self.handling = False
 
     @classmethod
