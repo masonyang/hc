@@ -304,7 +304,7 @@ class Mic:
 
         for i in range(0, RATE / CHUNK * LISTEN_TIME):
             try:
-                data = stream.read(CHUNK)
+                data = stream.read(CHUNK, exception_on_overflow=False)
                 frames.append(data)
                 score = self.getScore(data)
 
@@ -322,6 +322,20 @@ class Mic:
 
         # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
         self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
+
+        frames = frames[-20:]
+
+        DELAY_MULTIPLIER = 1
+        for i in range(0, RATE / CHUNK * DELAY_MULTIPLIER):
+
+            try:
+                if self.stop_passive:
+                    break
+                data = stream.read(CHUNK, exception_on_overflow=False)
+                frames.append(data)
+            except Exception as e:
+                print("异常:"+e.message)
+                continue
 
         # save the audio data
         try:
