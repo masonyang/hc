@@ -282,6 +282,8 @@ class Mic:
         
         record_second = 5
 
+        self.say(dingdangpath.data('audio', 'beep_hi.wav'),True)
+
         file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_content.wav')
 
         # check if no threshold provided
@@ -294,8 +296,6 @@ class Mic:
                                   rate=RATE,
                                   input=True,
                                   frames_per_buffer=CHUNK)
-
-        # self.say(dingdangpath.data('audio', 'beep_hi.wav'),True)
 
         frames = []
         # increasing the range # results in longer pause after command
@@ -320,19 +320,6 @@ class Mic:
                 print("异常:"+e.message)
                 continue
 
-        # self.speaker.play(dingdangpath.data('audio', 'beep_lo.wav'))
-        # self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
-
-        # DELAY_MULTIPLIER = 1
-        # for i in range(0, RATE / CHUNK * record_second):
-
-        #     try:
-        #         data = stream.read(CHUNK, exception_on_overflow=False)
-        #         frames.append(data)
-        #     except Exception as e:
-        #         print("异常:"+e.message)
-        #         continue
-
         # save the audio data
         try:
             stream.stop_stream()
@@ -348,6 +335,8 @@ class Mic:
         except Exception as e:
             print("异常:"+e.message)
             pass
+
+        self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
         return self.active_stt_engine.transcribe(frames)
 
