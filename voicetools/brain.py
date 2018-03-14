@@ -25,7 +25,6 @@ class Brain(object):
         self.mic = mic
         self.profile = profile
         (self.plugins, self.exclude_plugins) = self.get_plugins()
-        print(self.plugins)
         self.handling = False
 
     @classmethod
@@ -90,25 +89,26 @@ class Brain(object):
         text -- user input, typically speech, to be parsed by a plugin
         send_wechat -- also send the respondsed result to wechat
         """
+        
+        print(self.plugins)
 
         for plugin in self.plugins:
-            for text in texts:
-                if plugin.isValid(text) and self.isEnabled(plugin):
-                    print("'%s' is a valid phrase for plugin " +
-                                       "'%s'", text, plugin.__name__)
-                    try:
-                        self.handling = True
-                        plugin.handle(text, self.mic, self.profile)
-                        self.handling = False
-                    except Exception:
-                        print('Failed to execute plugin')
-                        reply = u"抱歉，我的大脑出故障了，晚点再试试吧"
-                        self.mic.say(reply)
-                    else:
-                        print("Handling of phrase '%s' by " +
-                                           "plugin '%s' completed", text,
-                                           plugin.__name__)
-                    finally:
-                        return
+            if plugin.isValid(texts) and self.isEnabled(plugin):
+                print("'%s' is a valid phrase for plugin " +
+                                   "'%s'", texts, plugin.__name__)
+                try:
+                    self.handling = True
+                    plugin.handle(texts, self.mic, self.profile)
+                    self.handling = False
+                except Exception:
+                    print('Failed to execute plugin')
+                    reply = u"抱歉，我的大脑出故障了，晚点再试试吧"
+                    self.mic.say(reply)
+                else:
+                    print("Handling of phrase '%s' by " +
+                                       "plugin '%s' completed", texts,
+                                       plugin.__name__)
+                finally:
+                    return
         print("No plugin was able to handle any of these " +
                            "phrases: %r", texts)
