@@ -6,6 +6,9 @@ import subprocess
 import time
 import sys
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 WORDS = [u"PAIZHAO", u"ZHAOPIAN"]
 SLUG = "camera"
 

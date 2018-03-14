@@ -2,7 +2,10 @@
 from __future__ import absolute_import
 import pkgutil
 import dingdangpath
+import sys
 
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 class Brain(object):
 
