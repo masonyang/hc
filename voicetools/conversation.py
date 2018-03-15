@@ -33,7 +33,7 @@ class conversation(object):
 						print("Nothing has been said or transcribed.")
 						continue
 					else:
-						print("Keyword '%s' has been said!", self.persona)
+						print("Keyword '%s' has been said!", transcribed)
 				# else:
 				# 	if not self.mic.chatting_mode:
 				# 		self.mic.skip_passive = False
