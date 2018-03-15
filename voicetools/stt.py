@@ -236,7 +236,7 @@ class BaiduSTT(AbstractSTTEngine):
 
     def __init__(self):
 
-        api_file = os.path.join(os.path.join(dingdangpath.TEMP_PATH, 'baidu_yuyin_api.json')
+        api_file = os.path.join(dingdangpath.TEMP_PATH, 'baidu_yuyin_api.json')
         try:
             with open(api_file, 'r') as in_file:
             apidata = json.load(in_file)
