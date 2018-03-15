@@ -341,15 +341,14 @@ class Mic:
 
         return self.active_stt_engine.transcribe(frames)
 
-    def say(self, phrase, isaudio=False):
+    def say(self, phrase, isaudio=False,lang='zh'):
         print(u"机器人说：%s" % phrase)
         self.stop_passive = True
 
         if(isaudio):
             os.system('/usr/bin/aplay '+phrase)
         else:
-            url = u'http://tts.baidu.com/text2audio?idx=1&tex={0}&cuid=baidu_speech_' \
-            u'demo&cod=2&lan=zh&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'.format(phrase.encode('utf-8'))
+            url = 'http://tts.baidu.com/text2audio?idx=1&tex='+phrase.encode('utf-8')+'&cuid=baidu_speech_demo&cod=2&lan='+lang+'&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'
             os.system('/usr/bin/mplayer "' + url+'"')
 
         time.sleep(1)  # 避免叮当说话时误唤醒

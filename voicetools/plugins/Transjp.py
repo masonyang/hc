@@ -32,7 +32,7 @@ def handle(text, mic, profile):
 
         if mic.transjp_mode:
             sentence = transJp(text)
-            mic.say(sentence)
+            mic.say(sentence,False,'jp')
         else:
             mic.say(u"进入中文翻译日文模式，现在跟我说说话吧")
             mic.transjp_mode = True
