@@ -390,7 +390,7 @@ class BaiduSTT(AbstractSTTEngine):
         else:
             transcribed = []
             if text:
-                text.replace('，','')
+                text = text.replace('，','')
                 transcribed.append(text.upper())
 
             # output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
