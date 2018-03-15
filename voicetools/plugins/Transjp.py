@@ -7,7 +7,7 @@ except NameError:  # Python 3
     from importlib import reload
 
 import sys
-# import translate
+from client.translate import tranlates
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -31,8 +31,8 @@ def handle(text, mic, profile):
     if not any(word in text for word in ["结束翻译", "翻译结束"]):
 
         if mic.transjp_mode:
-            # sentence = transJp(text)
-            # mic.say(sentence,False,'jp')
+            sentence = transJp(text)
+            mic.say(sentence,False,'jp')
         else:
             mic.say("进入中文翻译日文模式，现在跟我说说话吧")
             mic.transjp_mode = True
@@ -44,12 +44,12 @@ def handle(text, mic, profile):
 
     return True
 
-# def transJp(text):
-#     trans = translate.Translate()
+def transJp(text):
+    trans = tranlates.Translate()
 
-#     sentence = trans.jpTrans(text,'zh')
+    sentence = trans.jpTrans(text,'zh')
 
-#     return sentence
+    return sentence
 
 def isValid(mic,text):
     """
