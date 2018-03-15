@@ -34,11 +34,11 @@ class conversation(object):
 						continue
 					else:
 						print("Keyword '%s' has been said!", self.persona)
-				else:
-					if not self.mic.chatting_mode:
-						self.mic.skip_passive = False
-					elif not self.mic.transjp_mode:
-						self.mic.skip_passive = False
+				# else:
+				# 	if not self.mic.chatting_mode:
+				# 		self.mic.skip_passive = False
+				# 	elif not self.mic.transjp_mode:
+				# 		self.mic.skip_passive = False
 
 				input = self.mic.activeListenToAllOptions(threshold)
 
