@@ -235,8 +235,15 @@ class BaiduSTT(AbstractSTTEngine):
     SLUG = "baidu-stt"
 
     def __init__(self):
-        self.api_key = 'I1wrYGlMfqpbg0oA8Klc4nKQ'
-        self.secret_key = 'd0cc95a09426d7f614bd7bab8e3594c8'
+
+        api_file = os.path.join(os.path.join(dingdangpath.TEMP_PATH, 'baidu_yuyin_api.json')
+        try:
+            with open(api_file, 'r') as in_file:
+            apidata = json.load(in_file)
+        except IOError:
+            pass
+        self.api_key = apidata['api_key']
+        self.secret_key = apidata['secret_key']
         self.token = ''
 
     @classmethod
