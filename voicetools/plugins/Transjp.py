@@ -164,7 +164,7 @@ class Translate(object):
             return result['query']
 
     def get_js(self):   
-        f = open(os.path.join(dingdangpath.TEMP_PATH, 'baidu_transapi_sign.js','r')
+        f = open(os.path.join(dingdangpath.TEMP_PATH, 'baidu_transapi_sign.js'),'r')
         line = f.readline()  
         htmlstr = ''  
         while line:
