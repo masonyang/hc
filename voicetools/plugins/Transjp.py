@@ -7,7 +7,7 @@ except NameError:  # Python 3
     from importlib import reload
 
 import sys
-import translate
+import Translate
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -45,7 +45,7 @@ def handle(text, mic, profile):
     return True
 
 def transJp(text):
-    trans = translate.Translate()
+    trans = Translate()
 
     sentence = trans.jpTrans(text,'zh')
 
