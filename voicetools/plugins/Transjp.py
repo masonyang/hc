@@ -12,7 +12,8 @@ import json
 import requests
 import execjs
 import cookielib
-
+import os
+import dingdangpath
 
 import sys
 
@@ -162,8 +163,8 @@ class Translate(object):
         except:
             return result['query']
 
-    def get_js(self):  
-        f = open("/Users/yangminsheng/masonInPython/epaper_clock/baidu_transapi_sign.js", 'r')  
+    def get_js(self):   
+        f = open(os.path.join(dingdangpath.TEMP_PATH, 'baidu_transapi_sign.js','r')
         line = f.readline()  
         htmlstr = ''  
         while line:
