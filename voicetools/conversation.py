@@ -25,13 +25,20 @@ class conversation(object):
 				continue
 
 			if not self.mic.stop_passive:
-				threshold, transcribed = self.mic.passiveListen(self.persona)
-				
-				if not transcribed or not threshold:
-					print("Nothing has been said or transcribed.")
-					continue
+
+				if not self.mic.skip_passive:
+					threshold, transcribed = self.mic.passiveListen(self.persona)
+					
+					if not transcribed or not threshold:
+						print("Nothing has been said or transcribed.")
+						continue
+					else:
+						print("Keyword '%s' has been said!", self.persona)
 				else:
-					print("Keyword '%s' has been said!", self.persona)
+					if not self.mic.chatting_mode:
+						self.mic.skip_passive = False
+					elif not self.mic.transjp_mode:
+						self.mic.skip_passive = False
 
 				input = self.mic.activeListenToAllOptions(threshold)
 

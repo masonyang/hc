@@ -65,8 +65,9 @@ def handle(text, mic, profile):
     if sound:
         mic.say(dingdangpath.data('audio', 'camera.wav'),True)
 
+    return True
 
-def isValid(text):
+def isValid(mic,text):
     """
         Returns True if input is related to the time.
 

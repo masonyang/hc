@@ -93,14 +93,16 @@ class Brain(object):
         print(self.plugins)
 
         for plugin in self.plugins:
-            if plugin.isValid(texts) and self.isEnabled(plugin):
+            if plugin.isValid(self.mic,texts) and self.isEnabled(plugin):
                 print("'%s' is a valid phrase for plugin " +
                                    "'%s'", texts, plugin.__name__)
                 try:
                     self.handling = True
-                    plugin.handle(texts, self.mic, self.profile)
+                    res = plugin.handle(texts, self.mic, self.profile)
                     self.handling = False
-                    return
+
+                    if res == True:
+                        return
                 except Exception,e:
                     print('Failed to execute plugin'+e.message)
                     reply = u"抱歉，我的大脑出故障了，晚点再试试吧"

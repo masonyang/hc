@@ -27,6 +27,8 @@ def handle(text, mic, profile):
 
     mic.say(u"%s " % weather())
 
+    return True
+
 def weather():
     hadata = {}
 
@@ -72,7 +74,7 @@ def weather():
 
     return text
 
-def isValid(text):
+def isValid(mic,text):
     """
         Returns True if input is related to the time.
 
