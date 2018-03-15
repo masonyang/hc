@@ -400,7 +400,7 @@ class BaiduSTT(AbstractSTTEngine):
 
             print(u'百度语音识别关键字到了: %s' % text.encode('utf-8'))
             # print('BaiduSTT 识别到了：%r', transcribed)
-            return transcribed
+            return text.encode('utf-8')
 
     @classmethod
     def is_available(cls):
