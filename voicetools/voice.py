@@ -12,7 +12,7 @@ sys.setdefaultencoding('utf-8')
 
 if __name__ == '__main__':
 
-	persona = '丁丁'
+	persona = '多啦a梦'
 
 	profile = []
 
