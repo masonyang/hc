@@ -239,7 +239,7 @@ class BaiduSTT(AbstractSTTEngine):
         api_file = os.path.join(dingdangpath.TEMP_PATH, 'baidu_yuyin_api.json')
         try:
             with open(api_file, 'r') as in_file:
-            apidata = json.load(in_file)
+                apidata = json.load(in_file)
         except IOError:
             pass
         self.api_key = apidata['api_key']
