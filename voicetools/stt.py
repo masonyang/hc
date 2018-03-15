@@ -390,6 +390,7 @@ class BaiduSTT(AbstractSTTEngine):
         else:
             transcribed = []
             if text:
+                text.replace('，','')
                 transcribed.append(text.upper())
 
             # output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'listen_awakekw.json')
@@ -399,7 +400,7 @@ class BaiduSTT(AbstractSTTEngine):
 
             print(u'百度语音识别关键字到了: %s' % text.encode('utf-8'))
             # print('BaiduSTT 识别到了：%r', transcribed)
-            return text.encode('utf-8')
+            return transcribed
 
     @classmethod
     def is_available(cls):
