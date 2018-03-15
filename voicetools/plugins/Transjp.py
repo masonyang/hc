@@ -7,7 +7,7 @@ except NameError:  # Python 3
     from importlib import reload
 
 import sys
-from ..client.translate import translate
+import translate
 
 reload(sys)
 sys.setdefaultencoding('utf8')
