@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37689c30-a462-4e35-9743-5e9fe9ca24af" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/voicetools" afterPath="" />
+    <list default="true" id="37689c30-a462-4e35-9743-5e9fe9ca24af" name="Default" comment="fix">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/voicetools/stt.py" afterPath="$PROJECT_DIR$/voicetools/stt.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,7 +25,35 @@
     <favorites_list name="hc" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="test" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/test">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stt.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/voicetools/stt.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="627" column="29" selection-start="20945" selection-end="20945" vertical-scroll-proportion="0.0" vertical-offset="10195" max-vertical-offset="13545">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mic.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/voicetools/mic.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="232" column="39" selection-start="6685" selection-end="6685" vertical-scroll-proportion="0.31451613" vertical-offset="3285" max-vertical-offset="5460">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -38,6 +67,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/schedule.py" />
+        <option value="$PROJECT_DIR$/voicetools/brain.py" />
+        <option value="$PROJECT_DIR$/voicetools/mic.py" />
       </list>
     </option>
   </component>
@@ -93,17 +124,93 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voicetools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voicetools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="temp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voicetools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="voicetools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="usage.statistics" />
+    <property name="options.lastSelected" value="com.jetbrains.php.gae.AppEnginePhpModulesConfigurable" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/workevn/paimai" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/voicetools/plugins" />
+      <recent name="$PROJECT_DIR$/voicetools/client" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -122,6 +229,24 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="37689c30-a462-4e35-9743-5e9fe9ca24af" name="Default" comment="" />
@@ -132,32 +257,464 @@
       <created>1518536152857</created>
       <updated>1518536152857</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix">
+      <created>1520667931955</created>
+      <updated>1520667931955</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix">
+      <created>1520672135880</created>
+      <updated>1520672135880</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix">
+      <created>1520672406265</created>
+      <updated>1520672406265</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix">
+      <created>1520672733394</created>
+      <updated>1520672733394</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix">
+      <created>1520673387178</created>
+      <updated>1520673387178</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <created>1520674393194</created>
+      <updated>1520674393194</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix">
+      <created>1520674475767</created>
+      <updated>1520674475767</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix">
+      <created>1520674806519</created>
+      <updated>1520674806519</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix">
+      <created>1520675096386</created>
+      <updated>1520675096386</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix">
+      <created>1520675364750</created>
+      <updated>1520675364750</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix">
+      <created>1520675585480</created>
+      <updated>1520675585480</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix">
+      <created>1520675791565</created>
+      <updated>1520675791565</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix">
+      <created>1520676126187</created>
+      <updated>1520676126187</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix">
+      <created>1520676440347</created>
+      <updated>1520676440347</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix">
+      <created>1520676628452</created>
+      <updated>1520676628452</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix">
+      <created>1520685490090</created>
+      <updated>1520685490090</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix">
+      <created>1520689254605</created>
+      <updated>1520689254605</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix">
+      <created>1520689474983</created>
+      <updated>1520689474983</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix">
+      <created>1520769146342</created>
+      <updated>1520769146342</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix">
+      <created>1520770519430</created>
+      <updated>1520770519430</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix">
+      <created>1520773658775</created>
+      <updated>1520773658775</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix">
+      <created>1520774026005</created>
+      <updated>1520774026005</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix">
+      <created>1520774160554</created>
+      <updated>1520774160554</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix">
+      <created>1520774270216</created>
+      <updated>1520774270216</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix">
+      <created>1520775140770</created>
+      <updated>1520775140770</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix">
+      <created>1520775420351</created>
+      <updated>1520775420351</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix">
+      <created>1520775536139</created>
+      <updated>1520775536139</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix">
+      <created>1520776094926</created>
+      <updated>1520776094926</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix">
+      <created>1520776515727</created>
+      <updated>1520776515727</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix">
+      <created>1520779881785</created>
+      <updated>1520779881785</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix">
+      <created>1520780656793</created>
+      <updated>1520780656793</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix">
+      <created>1520781264928</created>
+      <updated>1520781264928</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fix">
+      <created>1520781357067</created>
+      <updated>1520781357067</updated>
+    </task>
+    <task id="LOCAL-00035" summary="fix">
+      <created>1520946984515</created>
+      <updated>1520946984515</updated>
+    </task>
+    <task id="LOCAL-00036" summary="fix">
+      <created>1520947707323</created>
+      <updated>1520947707323</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix">
+      <created>1520948558285</created>
+      <updated>1520948558285</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix">
+      <created>1520948699813</created>
+      <updated>1520948699813</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix">
+      <created>1520948814653</created>
+      <updated>1520948814653</updated>
+    </task>
+    <task id="LOCAL-00040" summary="fix">
+      <created>1520949031291</created>
+      <updated>1520949031291</updated>
+    </task>
+    <task id="LOCAL-00041" summary="fix">
+      <created>1520949573018</created>
+      <updated>1520949573018</updated>
+    </task>
+    <task id="LOCAL-00042" summary="fix">
+      <created>1520949680371</created>
+      <updated>1520949680371</updated>
+    </task>
+    <task id="LOCAL-00043" summary="fix">
+      <created>1520949753415</created>
+      <updated>1520949753415</updated>
+    </task>
+    <task id="LOCAL-00044" summary="fix">
+      <created>1520950351432</created>
+      <updated>1520950351432</updated>
+    </task>
+    <task id="LOCAL-00045" summary="fix">
+      <created>1520950647424</created>
+      <updated>1520950647424</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fix">
+      <created>1520951012369</created>
+      <updated>1520951012369</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fix">
+      <created>1520951343293</created>
+      <updated>1520951343293</updated>
+    </task>
+    <task id="LOCAL-00048" summary="fix">
+      <created>1520952307790</created>
+      <updated>1520952307790</updated>
+    </task>
+    <task id="LOCAL-00049" summary="fix">
+      <created>1520953177122</created>
+      <updated>1520953177122</updated>
+    </task>
+    <task id="LOCAL-00050" summary="fix">
+      <created>1520954743566</created>
+      <updated>1520954743567</updated>
+    </task>
+    <task id="LOCAL-00051" summary="fix">
+      <created>1520955238101</created>
+      <updated>1520955238101</updated>
+    </task>
+    <task id="LOCAL-00052" summary="fix">
+      <created>1520955377215</created>
+      <updated>1520955377215</updated>
+    </task>
+    <task id="LOCAL-00053" summary="fix">
+      <created>1520955693384</created>
+      <updated>1520955693384</updated>
+    </task>
+    <task id="LOCAL-00054" summary="fix">
+      <created>1520956011449</created>
+      <updated>1520956011451</updated>
+    </task>
+    <task id="LOCAL-00055" summary="fix">
+      <created>1520956260726</created>
+      <updated>1520956260727</updated>
+    </task>
+    <task id="LOCAL-00056" summary="fix">
+      <created>1520956381232</created>
+      <updated>1520956381233</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix">
+      <created>1520996052096</created>
+      <updated>1520996052096</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fix">
+      <created>1520999395965</created>
+      <updated>1520999395966</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fix">
+      <created>1521008047298</created>
+      <updated>1521008047298</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fix">
+      <created>1521008537961</created>
+      <updated>1521008537961</updated>
+    </task>
+    <task id="LOCAL-00061" summary="fix">
+      <created>1521009999483</created>
+      <updated>1521009999484</updated>
+    </task>
+    <task id="LOCAL-00062" summary="fix">
+      <created>1521030249668</created>
+      <updated>1521030249669</updated>
+    </task>
+    <task id="LOCAL-00063" summary="fix">
+      <created>1521030489296</created>
+      <updated>1521030489296</updated>
+    </task>
+    <task id="LOCAL-00064" summary="fix">
+      <created>1521030903150</created>
+      <updated>1521030903150</updated>
+    </task>
+    <task id="LOCAL-00065" summary="fix">
+      <created>1521031287004</created>
+      <updated>1521031287004</updated>
+    </task>
+    <task id="LOCAL-00066" summary="fix">
+      <created>1521031858084</created>
+      <updated>1521031858084</updated>
+    </task>
+    <task id="LOCAL-00067" summary="fix">
+      <created>1521032044186</created>
+      <updated>1521032044186</updated>
+    </task>
+    <task id="LOCAL-00068" summary="fix">
+      <created>1521032446773</created>
+      <updated>1521032446773</updated>
+    </task>
+    <task id="LOCAL-00069" summary="fix">
+      <created>1521032769134</created>
+      <updated>1521032769134</updated>
+    </task>
+    <task id="LOCAL-00070" summary="fix">
+      <created>1521033403854</created>
+      <updated>1521033403854</updated>
+    </task>
+    <task id="LOCAL-00071" summary="fix">
+      <created>1521033762017</created>
+      <updated>1521033762018</updated>
+    </task>
+    <task id="LOCAL-00072" summary="fix">
+      <created>1521033957556</created>
+      <updated>1521033957556</updated>
+    </task>
+    <task id="LOCAL-00073" summary="fix">
+      <created>1521034282698</created>
+      <updated>1521034282698</updated>
+    </task>
+    <task id="LOCAL-00074" summary="fix">
+      <created>1521034405620</created>
+      <updated>1521034405620</updated>
+    </task>
+    <task id="LOCAL-00075" summary="fix">
+      <created>1521034688124</created>
+      <updated>1521034688124</updated>
+    </task>
+    <task id="LOCAL-00076" summary="fix">
+      <created>1521035598983</created>
+      <updated>1521035598983</updated>
+    </task>
+    <task id="LOCAL-00077" summary="fix">
+      <created>1521036156965</created>
+      <updated>1521036156965</updated>
+    </task>
+    <task id="LOCAL-00078" summary="fix">
+      <created>1521036388908</created>
+      <updated>1521036388909</updated>
+    </task>
+    <task id="LOCAL-00079" summary="fix">
+      <created>1521036607216</created>
+      <updated>1521036607217</updated>
+    </task>
+    <task id="LOCAL-00080" summary="fix">
+      <created>1521036774358</created>
+      <updated>1521036774359</updated>
+    </task>
+    <task id="LOCAL-00081" summary="fix">
+      <created>1521037369713</created>
+      <updated>1521037369714</updated>
+    </task>
+    <task id="LOCAL-00082" summary="fix">
+      <created>1521037867837</created>
+      <updated>1521037867837</updated>
+    </task>
+    <task id="LOCAL-00083" summary="fix">
+      <created>1521038038178</created>
+      <updated>1521038038179</updated>
+    </task>
+    <task id="LOCAL-00084" summary="fix">
+      <created>1521038197512</created>
+      <updated>1521038197513</updated>
+    </task>
+    <task id="LOCAL-00085" summary="fix">
+      <created>1521038317727</created>
+      <updated>1521038317728</updated>
+    </task>
+    <task id="LOCAL-00086" summary="fix">
+      <created>1521038509661</created>
+      <updated>1521038509662</updated>
+    </task>
+    <task id="LOCAL-00087" summary="fix">
+      <created>1521038745642</created>
+      <updated>1521038745642</updated>
+    </task>
+    <task id="LOCAL-00088" summary="fix">
+      <created>1521041541524</created>
+      <updated>1521041541524</updated>
+    </task>
+    <task id="LOCAL-00089" summary="fix">
+      <created>1521041665610</created>
+      <updated>1521041665610</updated>
+    </task>
+    <task id="LOCAL-00090" summary="fix">
+      <created>1521041800212</created>
+      <updated>1521041800213</updated>
+    </task>
+    <task id="LOCAL-00091" summary="fix">
+      <created>1521110534056</created>
+      <updated>1521110534056</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fix">
+      <created>1521111357371</created>
+      <updated>1521111357371</updated>
+    </task>
+    <task id="LOCAL-00093" summary="fix">
+      <created>1521118236737</created>
+      <updated>1521118236737</updated>
+    </task>
+    <task id="LOCAL-00094" summary="fix">
+      <created>1521118508721</created>
+      <updated>1521118508721</updated>
+    </task>
+    <task id="LOCAL-00095" summary="fix">
+      <created>1521118930529</created>
+      <updated>1521118930529</updated>
+    </task>
+    <task id="LOCAL-00096" summary="fix">
+      <created>1521119079562</created>
+      <updated>1521119079563</updated>
+    </task>
+    <task id="LOCAL-00097" summary="fix">
+      <created>1521119269920</created>
+      <updated>1521119269920</updated>
+    </task>
+    <task id="LOCAL-00098" summary="fix">
+      <created>1521119479020</created>
+      <updated>1521119479020</updated>
+    </task>
+    <task id="LOCAL-00099" summary="fix">
+      <created>1521119986408</created>
+      <updated>1521119986409</updated>
+    </task>
+    <task id="LOCAL-00100" summary="fix">
+      <created>1521120265973</created>
+      <updated>1521120265983</updated>
+    </task>
+    <task id="LOCAL-00101" summary="fix">
+      <created>1521120836379</created>
+      <updated>1521120836379</updated>
+    </task>
+    <task id="LOCAL-00102" summary="fix">
+      <created>1521121104277</created>
+      <updated>1521121104278</updated>
+    </task>
+    <task id="LOCAL-00103" summary="fix">
+      <created>1521121686397</created>
+      <updated>1521121686397</updated>
+    </task>
+    <task id="LOCAL-00104" summary="fix">
+      <created>1521122078875</created>
+      <updated>1521122078876</updated>
+    </task>
+    <task id="LOCAL-00105" summary="fix">
+      <created>1521122661054</created>
+      <updated>1521122661054</updated>
+    </task>
+    <task id="LOCAL-00106" summary="fix">
+      <created>1521122781520</created>
+      <updated>1521122781520</updated>
+    </task>
+    <task id="LOCAL-00107" summary="fix">
+      <created>1521123051694</created>
+      <updated>1521123051694</updated>
+    </task>
+    <task id="LOCAL-00108" summary="fix">
+      <created>1521123302773</created>
+      <updated>1521123302773</updated>
+    </task>
+    <task id="LOCAL-00109" summary="fix">
+      <created>1521123737930</created>
+      <updated>1521123737931</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="39" y="23" width="1241" height="777" extended-state="0" />
-    <editor active="false" />
+    <frame x="39" y="23" width="1241" height="777" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32928678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32776934" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294412" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25354463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32193494" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32829046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32928678" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -179,24 +736,193 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/schedule.py">
+    <entry file="file://$PROJECT_DIR$/static/test">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="8" selection-start="1986" selection-end="1986" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2010">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/stt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="627" column="29" selection-start="20945" selection-end="20945" vertical-scroll-proportion="0.0" vertical-offset="10195" max-vertical-offset="13545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/mic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="252" column="0" selection-start="7219" selection-end="7219" vertical-scroll-proportion="0.0" vertical-offset="3315" max-vertical-offset="5490">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/listen_awakekw.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="22" selection-start="0" selection-end="147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/schedule.py">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="40" selection-start="4394" selection-end="4394" vertical-scroll-proportion="0.34232715" vertical-offset="2362" max-vertical-offset="3540">
+        <state line="91" column="8" selection-start="1986" selection-end="1986" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2010" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schedule.py">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="40" selection-start="4394" selection-end="4394" vertical-scroll-proportion="0.34232715" vertical-offset="2362" max-vertical-offset="3540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/client/snowboydetect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="29" selection-start="377" selection-end="377" vertical-scroll-proportion="0.4710145" vertical-offset="0" max-vertical-offset="2250" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/baidu_test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="32" selection-start="0" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="594" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/listen_awakekw.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="596" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/temp/baidustt.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="633" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/brain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="44" selection-start="727" selection-end="727" vertical-scroll-proportion="0.5450237" vertical-offset="0" max-vertical-offset="1740" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/plugins/Time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="631" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/plugins/Camera.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="15" selection-start="229" selection-end="229" vertical-scroll-proportion="0.30903327" vertical-offset="0" max-vertical-offset="1230" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/stt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="627" column="29" selection-start="20945" selection-end="20945" vertical-scroll-proportion="0.0" vertical-offset="10195" max-vertical-offset="13545">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voicetools/mic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="232" column="39" selection-start="6685" selection-end="6685" vertical-scroll-proportion="0.31451613" vertical-offset="3285" max-vertical-offset="5460">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

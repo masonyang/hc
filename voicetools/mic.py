@@ -248,8 +248,11 @@ class Mic:
         transcribed = self.passive_stt_engine.transcribe_keyword(
             ''.join(frames))
 
-        if transcribed is not None and \
-           any(PERSONA in phrase for phrase in transcribed):
+        print(PERSONA)
+
+        print(transcribed)
+        
+        if (PERSONA == transcribed):
             return (THRESHOLD, PERSONA)
 
         return (False, transcribed)
