@@ -50,8 +50,8 @@ class Brain(object):
             try:
                 loader = finder.find_module(name)
                 mod = loader.load_module(name)
-            except Exception:
-                print("Skipped plugin '%s' due to an error.", name)
+            except Exception,e:
+                print("Skipped plugin '%s' due to an error."+e.message, name)
             else:
                 if hasattr(mod, 'WORDS'):
                     print("Found plugin '%s' with words: %r", name,

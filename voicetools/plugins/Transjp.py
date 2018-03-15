@@ -7,7 +7,7 @@ except NameError:  # Python 3
     from importlib import reload
 
 import sys
-import translate
+# import translate
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -28,28 +28,28 @@ def handle(text, mic, profile):
                    number)
         wxbot -- wechat bot instance
     """
-    if not any(word in text for word in [u"结束翻译", u"翻译结束"]):
+    if not any(word in text for word in ["结束翻译", "翻译结束"]):
 
         if mic.transjp_mode:
-            sentence = transJp(text)
-            mic.say(sentence,False,'jp')
+            # sentence = transJp(text)
+            # mic.say(sentence,False,'jp')
         else:
-            mic.say(u"进入中文翻译日文模式，现在跟我说说话吧")
+            mic.say("进入中文翻译日文模式，现在跟我说说话吧")
             mic.transjp_mode = True
             mic.skip_passive = True
     else:
-        mic.say(u"退出已开启中文翻译日文模式")
+        mic.say("退出已开启中文翻译日文模式")
         mic.skip_passive = False
         mic.transjp_mode = False
 
     return True
 
-def transJp(text):
-    trans = translate.Translate()
+# def transJp(text):
+#     trans = translate.Translate()
 
-    sentence = trans.jpTrans(text,'zh')
+#     sentence = trans.jpTrans(text,'zh')
 
-    return sentence
+#     return sentence
 
 def isValid(mic,text):
     """
@@ -62,4 +62,4 @@ def isValid(mic,text):
     if mic.transjp_mode:
         return True
     else:
-        return any(word in text for word in [u"日语翻译", u"结束翻译", u"翻译结束"])
+        return any(word in text for word in ["日语翻译", "结束翻译", "翻译结束"])
