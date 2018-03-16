@@ -6,6 +6,13 @@ import subprocess
 import time
 import sys
 import dingdangpath
+import socket
+import urllib
+import urllib2
+import json
+import requests
+import cookielib
+import base64
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -64,6 +71,7 @@ def handle(text, mic, profile):
         return
     if sound:
         mic.say(dingdangpath.data('audio', 'camera.wav'),True)
+        uploadImage(dest_file)
 
     return True
 
@@ -75,3 +83,62 @@ def isValid(mic,text):
         text -- user-input, typically transcribed speech
     """
     return any(word in text for word in ["拍照", "拍张照"])
+
+def uploadImage(imagefile):
+
+    ip = [(s.connect(('8.8.8.8', 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]
+
+    data = ip+'|'+imagefile
+    base_data = base64.b64encode(data)
+    api = serverapi()
+    return api.uploadImage(base_data)
+
+class serverapi(object):
+
+    """docstring for Translate"""
+    def __init__(self):
+        pass
+
+    def getConfig(self):
+        
+        pass
+
+    def makeUrl(self,url,params):
+        return url+params;
+        pass
+
+    def request(self,url):
+        request = urllib2.Request(url)
+
+        f = urllib2.urlopen(request)
+
+        return f.read()
+        pass
+
+    def post(self,url,data):
+
+        req=urllib2.Request(url,data)
+
+        f=urllib2.urlopen(req)
+
+        return f.read()
+        pass
+
+    def uploadImage(self,alinfo):
+
+        allowIpConfig = ['192.168.1.100','192.168.1.101','192.168.1.102','192.168.1.103']
+
+        for ip in allowIpConfig:
+
+            url = 'http://'+ip+'/index.php/openapi/bot.homecenter.album/save'
+
+            t = os.system('curl '+url)
+
+            if(t == 0):
+                url = url+'?alinfo='+alinfo
+                result = self.request(url)
+
+                return True
+            pass
+
+        return True
