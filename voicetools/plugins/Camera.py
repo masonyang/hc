@@ -72,7 +72,7 @@ def handle(text, mic, profile):
     if sound:
         mic.say(dingdangpath.data('audio', 'camera.wav'),True)
         uploadImage(dest_file)
-
+        os.system('rm '+dest_file)
     return True
 
 def isValid(mic,text):
