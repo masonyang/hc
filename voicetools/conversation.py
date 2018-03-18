@@ -3,6 +3,8 @@
 
 import sys
 import brain
+import dingdangpath
+import json
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -15,9 +17,26 @@ class conversation(object):
 		self.profile = profile
 		self.brain = brain.Brain(mic, profile)
 
+	def readVoiceToolsSwitchConfig(self,key):
+
+		data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+
+		f=open(data_file)
+
+		setting = json.load(f)
+
+		return setting[key]
+
 	def handleForever(self):
 
 		while True:
+
+			switch = self.readVoiceToolsSwitchConfig('switch')
+
+			if switch == 'on':
+				self.mic.stop_passive = False
+			elif switch == 'off':
+				self.mic.stop_passive = True
 
 			if self.mic.stop_passive:
 				print("skip conversation for now.")
