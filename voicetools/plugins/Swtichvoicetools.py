@@ -23,18 +23,18 @@ def handle(text, mic, profile):
         wxBot -- wechat robot
     """
 
-    mic.stop_passive = True
+	mic.stop_passive = True
 
-    settings = readVoiceToolsSwitchConfig()
+	settings = readVoiceToolsSwitchConfig()
 
 	setting['switch'] = 'off'
 	setting['server_sync_path'] = settings['server_sync_path']
 	setting['server_ip'] = settings['server_ip']
-    print(setting)
-    setVoiceToolsSwitchConfig(setting)
+	print(setting)
+	setVoiceToolsSwitchConfig(setting)
 
-    mic.say(u"好的，一会见")
-    return True
+	mic.say(u"好的，一会见")
+	return True
 
 def readVoiceToolsSwitchConfig():
 
