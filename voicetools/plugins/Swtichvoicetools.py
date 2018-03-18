@@ -25,31 +25,32 @@ def handle(text, mic, profile):
 
     mic.stop_passive = True
 
-    settings = readVoiceToolsSwitchConfig()
+    print(os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json'))
+    # settings = readVoiceToolsSwitchConfig()
 
-    settings['switch'] = 'off'
+    # settings['switch'] = 'off'
 
-    setVoiceToolsSwitchConfig(settings)
-    
+    # setVoiceToolsSwitchConfig(settings)
+
     mic.say(u"好的，一会见")
     return True
 
 def readVoiceToolsSwitchConfig():
 
-	data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+	# data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
 
-	f=open(data_file)
+	# f=open(data_file)
 
-	setting = json.load(f)
+	# setting = json.load(f)
 
-	return setting
+	return True
 
 def setVoiceToolsSwitchConfig(result):
 
-	data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+	# data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
 
-    with open(data_file, 'w') as out_file:
-    	json.dump(result, out_file)
+ #    with open(data_file, 'w') as out_file:
+ #    	json.dump(result, out_file)
 
     return True
 
