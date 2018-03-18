@@ -27,10 +27,11 @@ def handle(text, mic, profile):
 
     settings = readVoiceToolsSwitchConfig()
 
-    settings['switch'] = 'off'
-
-    print(settings)
-    # setVoiceToolsSwitchConfig(settings)
+    setting['switch'] = 'off'
+	setting['server_sync_path'] = settings['server_sync_path']
+	setting['server_ip'] = settings['server_ip']
+    print(setting)
+    setVoiceToolsSwitchConfig(setting)
 
     mic.say(u"好的，一会见")
     return True
@@ -47,10 +48,10 @@ def readVoiceToolsSwitchConfig():
 
 def setVoiceToolsSwitchConfig(result):
 
-	# data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+	data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
 
- #    with open(data_file, 'w') as out_file:
- #    	json.dump(result, out_file)
+    with open(data_file, 'w') as out_file:
+    	json.dump(result, out_file)
 
     return True
 
