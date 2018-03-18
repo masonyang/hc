@@ -42,7 +42,8 @@ class conversation(object):
 
 			if self.mic.stop_passive:
 				print("skip conversation for now.")
-				time.sleep(1)
+				self.mic.say("哆啦A梦正在休息。如要唤起，请去后台开启?")
+				time.sleep(2)
 				continue
 
 			if not self.mic.stop_passive:
