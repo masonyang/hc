@@ -5,6 +5,7 @@ import sys
 import brain
 import dingdangpath
 import json
+import os
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
