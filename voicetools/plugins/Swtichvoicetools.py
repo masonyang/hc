@@ -1,5 +1,8 @@
 # -*- coding: utf-8-*-
 import sys
+import dingdangpath
+import json
+import os
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -21,7 +24,33 @@ def handle(text, mic, profile):
     """
 
     mic.stop_passive = True
+
+    settings = readVoiceToolsSwitchConfig()
+
+    settings['switch'] = 'off'
+
+    setVoiceToolsSwitchConfig(settings)
+    
     mic.say(u"好的，一会见")
+    return True
+
+def readVoiceToolsSwitchConfig():
+
+	data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+
+	f=open(data_file)
+
+	setting = json.load(f)
+
+	return setting
+
+def setVoiceToolsSwitchConfig(result):
+
+	data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+
+    with open(data_file, 'w') as out_file:
+    	json.dump(result, out_file)
+
     return True
 
 def isValid(mic,text):
