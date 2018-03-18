@@ -339,6 +339,7 @@ class BaiduSTT(AbstractSTTEngine):
         else:
             transcribed = []
             if text:
+                text = text.replace('，','')
                 transcribed.append(text.upper())
             print(u'百度语音接收到你的指令: %s' % text.encode('utf-8'))
             # output_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'baidu_test.json')
