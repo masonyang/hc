@@ -50,8 +50,8 @@ def setVoiceToolsSwitchConfig(result):
 
 	data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
 
-	with open(data_file, 'w') as out_file:
-		json.dump(result, out_file)
+	with open(data_file, 'w') as f:
+		f.write(result)
 
     return True
 
