@@ -27,7 +27,7 @@ def handle(text, mic, profile):
 
     settings = readVoiceToolsSwitchConfig()
 
-    setting['switch'] = 'off'
+	setting['switch'] = 'off'
 	setting['server_sync_path'] = settings['server_sync_path']
 	setting['server_ip'] = settings['server_ip']
     print(setting)
@@ -53,7 +53,7 @@ def setVoiceToolsSwitchConfig(result):
 	with open(data_file, 'w') as f:
 		f.write(result)
 
-    return True
+	return True
 
 def isValid(mic,text):
     """
