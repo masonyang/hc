@@ -27,8 +27,9 @@ def handle(text, mic, profile):
 
     settings = readVoiceToolsSwitchConfig()
 
-    # settings['switch'] = 'off'
+    settings['switch'] = 'off'
 
+    print(settings)
     # setVoiceToolsSwitchConfig(settings)
 
     mic.say(u"好的，一会见")
