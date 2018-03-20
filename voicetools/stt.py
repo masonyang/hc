@@ -313,6 +313,7 @@ class BaiduSTT(AbstractSTTEngine):
                 "rate": frame_rate,
                 "speech": base_data,
                 "cuid": str(get_mac())[:32],
+                "lan": "zh",
                 "channel": 1}
         data = json.dumps(data)
         r = requests.post('http://vop.baidu.com/server_api',
