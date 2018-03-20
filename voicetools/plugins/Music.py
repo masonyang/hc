@@ -32,10 +32,12 @@ def handle(text, mic, profile):
     if not any(word in text for word in ["结束播放"]):
 
         if mic.transjp_mode:
-            if text == "播放音乐":
-                mp3file = '/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'
 
-                pygame.mixer.init()
+            mp3file = '/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'
+
+            pygame.mixer.init()
+            
+            if text == "播放音乐":
 
                 print('play music')
 
