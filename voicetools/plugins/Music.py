@@ -36,7 +36,7 @@ def handle(text, mic, profile):
             mp3file = '/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'
 
             pygame.mixer.init()
-            
+
             if text == "播放音乐":
 
                 print('play music')
@@ -54,7 +54,7 @@ def handle(text, mic, profile):
             mic.skip_passive = True
     else:
         pygame.mixer.music.stop()
-        mic.say("退出动感音乐模式")
+        print("退出动感音乐模式")
         mic.skip_passive = False
         mic.transjp_mode = False
 
