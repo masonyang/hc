@@ -1,5 +1,5 @@
 # -*- coding: utf-8-*-
-# 闲聊插件
+# 音乐插件
 
 try:
     reload         # Python 2
