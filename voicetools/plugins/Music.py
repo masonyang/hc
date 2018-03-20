@@ -54,7 +54,8 @@ def handle(text, mic, profile):
             mic.skip_passive = True
     else:
         pygame.mixer.music.stop()
-        print("退出动感音乐模式")
+        pygame.quit()
+        mic.say("退出动感音乐模式")
         mic.skip_passive = False
         mic.transjp_mode = False
 
