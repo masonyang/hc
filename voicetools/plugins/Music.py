@@ -9,6 +9,7 @@ except NameError:  # Python 3
 import os
 import sys
 import pygame
+import random
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -31,9 +32,13 @@ def handle(text, mic, profile):
     """
     if not any(word in text for word in ["结束播放"]):
 
-        if mic.transjp_mode:
+        mp3Index = ('柯南','稻香','东京')
 
-            mp3file = '/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'
+        mp3Music = ('http://mp32.9ku.com/upload/2016/05/27/829218.m4a','http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3','/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3')
+
+        mp3MusicList = {'柯南':'http://mp32.9ku.com/upload/2016/05/27/829218.m4a','稻香':'http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'}
+        
+        if mic.transjp_mode:
 
             pygame.mixer.init()
 
@@ -41,13 +46,36 @@ def handle(text, mic, profile):
 
                 print('play music')
 
-                track = pygame.mixer.music.load(mp3file)
-
-                pygame.mixer.music.play()
-            elif text == "暂停播放":
+            if text == "暂停播放":
                 pygame.mixer.music.pause()
             elif text == "继续播放":
                 pygame.mixer.music.unpause()
+            elif text == "换一首":
+
+                if pygame.mixer.music.get_busy() == True:
+                    pygame.mixer.music.stop()
+                
+                in_dex = random.randint(0,2)
+
+                mp3file = mp3Music[in_dex]
+
+                track = pygame.mixer.music.load(mp3file)
+
+                pygame.mixer.music.play()
+
+            else:
+                if pygame.mixer.music.get_busy() == True:
+                    pygame.mixer.music.stop()
+
+                mp3file = mp3Music[0]
+
+                for ele in mp3Index:
+                    if text == ele:
+                        mp3file = mp3MusicList[ele]
+
+                track = pygame.mixer.music.load(mp3file)
+
+                pygame.mixer.music.play()
         else:
             mic.say("进入动感音乐模式")
             mic.transjp_mode = True
