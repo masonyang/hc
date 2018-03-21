@@ -34,9 +34,9 @@ def handle(text, mic, profile):
 
         mp3Index = ('稻香','东京')
 
-        mp3Music = ('http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3','/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3')
+        mp3Music = ('/home/pi/masonInPython/hc/static/4113470514.mp3','/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3')
 
-        mp3MusicList = {'稻香':'http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'}
+        mp3MusicList = {'稻香':'/home/pi/masonInPython/hc/static/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'}
         
         if mic.transjp_mode:
 
