@@ -32,11 +32,11 @@ def handle(text, mic, profile):
     """
     if not any(word in text for word in ["结束播放"]):
 
-        mp3Index = ('稻香','东京')
+        mp3Index = ('稻香','东京','品冠')
 
-        mp3Music = ('/home/pi/masonInPython/hc/static/4113470514.mp3','/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3')
+        mp3Music = ('/home/pi/masonInPython/hc/static/4113470514.mp3','/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3','/home/pi/masonInPython/hc/static/1200476465.mp3')
 
-        mp3MusicList = {'稻香':'/home/pi/masonInPython/hc/static/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'}
+        mp3MusicList = {'稻香':'/home/pi/masonInPython/hc/static/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3','品冠':'/home/pi/masonInPython/hc/static/1200476465.mp3'}
         
         if mic.transjp_mode:
 
@@ -55,7 +55,7 @@ def handle(text, mic, profile):
                 if pygame.mixer.music.get_busy() == True:
                     pygame.mixer.music.stop()
                 
-                in_dex = random.randint(0,1)
+                in_dex = random.randint(0,2)
 
                 mp3file = mp3Music[in_dex]
 
