@@ -10,6 +10,7 @@ import os
 import sys
 import pygame
 import random
+import urllib2
 
 reload(sys)
 sys.setdefaultencoding('utf8')
@@ -32,11 +33,11 @@ def handle(text, mic, profile):
     """
     if not any(word in text for word in ["结束播放"]):
 
-        mp3Index = ('柯南','稻香','东京')
+        mp3Index = ('柯南','稻香')
 
-        mp3Music = ('http://mp32.9ku.com/upload/2016/05/27/829218.m4a','http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3','/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3')
+        mp3Music = ('http://mp32.9ku.com/upload/2016/05/27/829218.m4a','http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3')
 
-        mp3MusicList = {'柯南':'http://mp32.9ku.com/upload/2016/05/27/829218.m4a','稻香':'http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3'}
+        mp3MusicList = {'柯南':'http://mp32.9ku.com/upload/2016/05/27/829218.m4a','稻香':'http://ar.h5.ra01.sycdn.kuwo.cn/resource/n3/320/74/27/4113470514.mp3'}
         
         if mic.transjp_mode:
 
@@ -55,9 +56,13 @@ def handle(text, mic, profile):
                 if pygame.mixer.music.get_busy() == True:
                     pygame.mixer.music.stop()
                 
-                in_dex = random.randint(0,2)
+                in_dex = random.randint(0,1)
 
-                mp3file = mp3Music[in_dex]
+                url = mp3Music[in_dex]
+
+                response = urllib2.urlopen()
+                
+                mp3file = response.read()
 
                 track = pygame.mixer.music.load(mp3file)
 
@@ -67,11 +72,15 @@ def handle(text, mic, profile):
                 if pygame.mixer.music.get_busy() == True:
                     pygame.mixer.music.stop()
 
-                mp3file = mp3Music[0]
+                url = mp3Music[0]
 
                 for ele in mp3Index:
                     if text == ele:
-                        mp3file = mp3MusicList[ele]
+                        url = mp3MusicList[ele]
+
+                response = urllib2.urlopen(url)
+                
+                mp3file = response.read()
 
                 track = pygame.mixer.music.load(mp3file)
 
