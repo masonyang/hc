@@ -216,7 +216,7 @@ def handle(text, mic, profile):
         music_player.pause()
         input = mic.activeListen()
 
-        if input and any(ext in input for ext in [u"退出电台"]):
+        if input == "退出电台":
             music_player.stop()
             mic.say(u"退出电台")
             mic.transjp_mode = False
