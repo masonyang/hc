@@ -262,8 +262,8 @@ class Mic:
         """
 
         options = self.activeListenToAllOptions(THRESHOLD, LISTEN, MUSIC)
-        if options:
-            return options[0]
+
+        return options
 
     def activeListenToAllOptions(self, THRESHOLD=None, LISTEN=True,
                                  MUSIC=False):
