@@ -40,7 +40,7 @@ class MusicPlayer(threading.Thread):
                     self.pick_next()
 
     def play(self):
-        print('MusicPlayer play')
+        print('MusicPlayer play....')
         song_url = "http://music.baidu.com/data/music/fmlink?" +\
             "type=mp3&rate=320&songIds=%s" % self.playlist[self.idx]['id']
         song_name, song_link, song_size, song_time =\
