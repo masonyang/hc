@@ -229,4 +229,4 @@ def handle(text, mic, profile):
 
 
 def isValid(mic,text):
-    return any(word in text for word in [u"电台",u"退出电台播放"])
+    return any(word in text for word in [u"电台",u"退出电台"])
