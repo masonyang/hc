@@ -107,6 +107,11 @@ class Brain(object):
                     print('Failed to execute plugin'+e.message)
                     reply = u"抱歉，我的大脑出故障了，晚点再试试吧"
                     self.mic.say(reply)
+                    self.mic.stop_passive = False
+                    self.mic.skip_passive = False
+                    self.mic.chatting_mode = False
+                    self.mic.transjp_mode = False
+                    self.mic.fm_mode = False
                     return
                 else:
                     print("Handling of phrase '%s' by " +
