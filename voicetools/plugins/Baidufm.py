@@ -191,7 +191,7 @@ def handle(text, mic, profile):
 
     music_player = MusicPlayer(song_id_list)
 
-    if text and any(ext in text for ext in [u"退出电台播放", u"停止电台播放"]):
+    if text and any(ext in text for ext in [u"退出电台播放"]):
         mic.say(u"结束播放")
         music_player.stop()
         mic.transjp_mode = False
@@ -199,6 +199,8 @@ def handle(text, mic, profile):
         return True
     elif text == "电台":
         music_player.start()
+        mic.transjp_mode = True
+        mic.skip_passive = True
     else:
         mic.say(u"什么？")
         music_player.resume()
@@ -208,4 +210,4 @@ def handle(text, mic, profile):
 
 
 def isValid(mic,text):
-    return any(word in text for word in [u"电台",u"退出电台播放", u"停止电台播放"])
+    return any(word in text for word in [u"电台",u"退出电台播放"])
