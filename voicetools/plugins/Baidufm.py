@@ -203,5 +203,5 @@ def handle(text, mic, profile):
         mic.skip_passive = True
 
 
-def isValid(text):
+def isValid(mic,text):
     return any(word in text for word in [u"百度音乐", u"百度电台",u"结束电台播放", u"退出电台播放", u"停止电台播放"])
