@@ -176,40 +176,57 @@ def get_song_list(channel_url):
 
 
 def handle(text, mic, profile):
+    page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
+    channel_list = get_channel_list(page_url)
 
-    if text and any(ext in text for ext in [u"退出电台"]):
-        music_player.stop()
-        mic.say(u"结束播放")
-        mic.transjp_mode = False
-        mic.skip_passive = False
-        return True
-    elif text == "电台":
+    channel = DEFAULT_CHANNEL
 
-        page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
-        channel_list = get_channel_list(page_url)
+    channel_id = channel_list[channel]['channel_id']
+    channel_name = channel_list[channel]['channel_name']
+    mic.say(u"播放" + channel_name)
 
-        channel = DEFAULT_CHANNEL
+    channel_url = 'http://fm.baidu.com/dev/api/' +\
+        '?tn=playlist&format=json&id=%s' % channel_id
+    song_id_list = get_song_list(channel_url)
 
-        channel_id = channel_list[channel]['channel_id']
-        channel_name = channel_list[channel]['channel_name']
-        mic.say(u"播放" + channel_name)
+    music_player = MusicPlayer(song_id_list)
 
-        channel_url = 'http://fm.baidu.com/dev/api/' +\
-            '?tn=playlist&format=json&id=%s' % channel_id
-        song_id_list = get_song_list(channel_url)
+    music_player.start()
 
-        music_player = MusicPlayer(song_id_list)
+    mic.transjp_mode = True
+    mic.fm_mode = True
+    mic.skip_passive = True
+    persona = ['多啦a梦','哆啦a梦']
 
-        music_player.start()
-        mic.transjp_mode = True
-        mic.skip_passive = True
-    else:
-        print(u"什么？")
-        music_player.resume()
-        mic.transjp_mode = True
-        mic.skip_passive = True
+    while True:
 
+        try:
+            threshold, transcribed = mic.passiveListen(persona)
+        except Exception, e:
+            logger.error(e)
+            threshold, transcribed = (None, None)
+
+        if not transcribed or not threshold:
+            print("FM Nothing has been said or transcribed.")
+            continue
+
+        music_player.pause()
+        input = mic.activeListen()
+
+        if input and any(ext in input for ext in [u"退出电台"]):
+            music_player.stop()
+            mic.say(u"退出电台")
+            mic.transjp_mode = False
+            mic.fm_mode = False
+            mic.skip_passive = False
+            return True
+        else:
+            mic.say(u"什么？")
+            music_player.resume()
+            mic.transjp_mode = True
+            mic.skip_passive = True
+            mic.fm_mode = True
 
 
 def isValid(mic,text):
-    return any(word in text for word in [u"电台",u"退出电台"])
+    return any(word in text for word in [u"电台",u"退出电台播放"])

@@ -62,12 +62,13 @@ class conversation(object):
 				# 	elif not self.mic.transjp_mode:
 				# 		self.mic.skip_passive = False
 
-				input = self.mic.activeListenToAllOptions(threshold)
+				if not self.mic.fm_mode:
+					input = self.mic.activeListenToAllOptions(threshold)
 
-				if input:
-					self.brain.query(input)
-				else:
-					if not self.mic.transjp_mode:
-						self.mic.say("什么?")
+					if input:
+						self.brain.query(input)
+					else:
+						if not self.mic.transjp_mode:
+							self.mic.say("什么?")
 
 
