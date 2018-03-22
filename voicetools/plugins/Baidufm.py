@@ -7,6 +7,7 @@ import subprocess
 import sys
 import tempfile
 import threading
+import base64
 from urllib import urlopen
 
 reload(sys)
@@ -72,7 +73,7 @@ class MusicPlayer(threading.Thread):
         process.wait()
         if os.path.exists(self.song_file):
             if not self.is_stop:
-                cmd = ['play', self.song_file]
+                cmd = ['/usr/bin/mplayer', self.song_file]
                 print('begin to play')
                 with tempfile.TemporaryFile() as f:
                     subprocess.call(cmd, stdout=f, stderr=f)
@@ -85,7 +86,7 @@ class MusicPlayer(threading.Thread):
                 os.remove(self.song_file)
 
     def download_mp3_by_link(self, song_link, song_name, song_size):
-        file_name = song_name + ".mp3"
+        file_name = base64.b64encode(song_name) + ".mp3"
 
         self.song_file = os.path.join(self.directory, file_name)
         if os.path.exists(self.song_file):
