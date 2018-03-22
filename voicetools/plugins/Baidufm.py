@@ -8,6 +8,7 @@ import sys
 import tempfile
 import threading
 import base64
+import hashlib
 from urllib import urlopen
 
 reload(sys)
@@ -86,7 +87,9 @@ class MusicPlayer(threading.Thread):
                 os.remove(self.song_file)
 
     def download_mp3_by_link(self, song_link, song_name, song_size):
-        file_name = base64.b64encode(song_name) + ".mp3"
+        hl = hashlib.md5()
+        hl.update(song_name.encode(encoding='utf-8'))
+        file_name = hl.hexdigest() + ".mp3"
 
         self.song_file = os.path.join(self.directory, file_name)
         if os.path.exists(self.song_file):
