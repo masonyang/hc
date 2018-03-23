@@ -205,7 +205,7 @@ def handle(text, mic, profile):
 
     while True:
 
-        switch = readVoiceToolsSwitchConfig('switch')
+        switch = readBaiduFmSwitchConfig('switch')
 
         if switch == 'on':
             try:
@@ -236,9 +236,9 @@ def handle(text, mic, profile):
                 mic.fm_mode = True
 
 
-def readVoiceToolsSwitchConfig(key):
+def readBaiduFmSwitchConfig(key):
 
-    data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+    data_file = os.path.join(dingdangpath.TEMP_PATH, 'baidufm_switch.json')
 
     f=open(data_file)
 
