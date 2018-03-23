@@ -9,6 +9,8 @@ import tempfile
 import threading
 import base64
 import hashlib
+import json
+import dingdangpath
 from urllib import urlopen
 
 reload(sys)
@@ -203,33 +205,46 @@ def handle(text, mic, profile):
 
     while True:
 
-        try:
-            threshold, transcribed = mic.passiveListen(persona)
-        except Exception, e:
-            logger.error(e)
-            threshold, transcribed = (None, None)
+        switch = readVoiceToolsSwitchConfig('switch')
 
-        if not transcribed or not threshold:
-            print("FM Nothing has been said or transcribed.")
-            continue
+        if switch == 'on':
+            try:
+                threshold, transcribed = mic.passiveListen(persona)
+            except Exception, e:
+                logger.error(e)
+                threshold, transcribed = (None, None)
 
-        music_player.pause()
-        input = mic.activeListen()
+            if not transcribed or not threshold:
+                print("FM Nothing has been said or transcribed.")
+                continue
 
-        if input == "退出电台":
-            music_player.stop()
-            mic.say(u"退出电台")
-            mic.transjp_mode = False
-            mic.fm_mode = False
-            mic.skip_passive = False
-            return True
-        else:
-            mic.say(u"什么？")
-            music_player.resume()
-            mic.transjp_mode = True
-            mic.skip_passive = True
-            mic.fm_mode = True
+            music_player.pause()
+            input = mic.activeListen()
 
+            if input == "退出电台":
+                music_player.stop()
+                mic.say(u"退出电台")
+                mic.transjp_mode = False
+                mic.fm_mode = False
+                mic.skip_passive = False
+                return True
+            else:
+                mic.say(u"什么？")
+                music_player.resume()
+                mic.transjp_mode = True
+                mic.skip_passive = True
+                mic.fm_mode = True
+
+
+def readVoiceToolsSwitchConfig(key):
+
+    data_file = os.path.join(dingdangpath.TEMP_PATH, 'voicetools_switch.json')
+
+    f=open(data_file)
+
+    setting = json.load(f)
+
+    return setting[key]
 
 def isValid(mic,text):
     return any(word in text for word in [u"电台",u"退出电台"])
