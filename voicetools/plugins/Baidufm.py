@@ -51,7 +51,7 @@ class MusicPlayer(threading.Thread):
         song_name, song_link, song_size, song_time =\
             self.get_song_real_url(song_url)
         self.pause()
-        self.mic.say("即将播放"+song_name)
+        self.mic.play("即将播放"+song_name)
         self.resume()
         self.download_mp3_by_link(song_link, song_name, song_size)
         self.play_mp3_by_link(song_link, song_name, song_size, song_time)

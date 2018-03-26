@@ -354,7 +354,6 @@ class Mic:
         time.sleep(1)  # 避免叮当说话时误唤醒
         self.stop_passive = False
 
-    def play(self, src):
-        # play a voice
-        # self.speaker.play(src)
-        return True
+    def play(self, phrase,lang='zh'):
+        url = 'http://tts.baidu.com/text2audio?idx=1&tex='+phrase.encode('utf-8')+'&cuid=baidu_speech_demo&cod=2&lan='+lang+'&ctp=1&pdt=1&spd=4&per=1&vol=5&pit=5'
+        os.system('/usr/bin/mplayer "' + url+'"')
