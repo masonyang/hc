@@ -25,7 +25,7 @@ DEFAULT_CHANNEL = 13
 
 class MusicPlayer(threading.Thread):
 
-    def __init__(self, playlist):
+    def __init__(self, playlist,mic):
         super(MusicPlayer, self).__init__()
         self.event = threading.Event()
         self.event.set()
@@ -34,6 +34,7 @@ class MusicPlayer(threading.Thread):
         self.is_stop = False
         self.is_pause = False
         self.song_file = "dummy"
+        self.mic = mic
         self.directory = tempfile.mkdtemp()
 
     def run(self):
@@ -49,6 +50,9 @@ class MusicPlayer(threading.Thread):
             "type=mp3&rate=320&songIds=%s" % self.playlist[self.idx]['id']
         song_name, song_link, song_size, song_time =\
             self.get_song_real_url(song_url)
+        self.pause()
+        self.mic.say("即将播放"+song_name)
+        self.resume()
         self.download_mp3_by_link(song_link, song_name, song_size)
         self.play_mp3_by_link(song_link, song_name, song_size, song_time)
 
@@ -194,7 +198,7 @@ def handle(text, mic, profile):
         '?tn=playlist&format=json&id=%s' % channel_id
     song_id_list = get_song_list(channel_url)
 
-    music_player = MusicPlayer(song_id_list)
+    music_player = MusicPlayer(song_id_list,mic)
 
     music_player.start()
 
