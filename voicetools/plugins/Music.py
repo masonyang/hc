@@ -98,6 +98,9 @@ def isValid(mic,text):
     """
 
     if mic.trans_mode:
+        if mic.transjp_mode or mic.transen_mode:
+            return False
+
         return True
     else:
         return any(word in text for word in ["播放音乐", "结束播放", "暂停播放","继续播放"])
