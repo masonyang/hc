@@ -64,12 +64,12 @@ def handle(text, mic, profile):
         mic.transen_mode = False
     return True
 
-def trans(text,trans='jp'):
+def trans(text,lang='jp'):
     trans = Translate()
 
-    if trans=='jp':
+    if lang=='jp':
         sentence = trans.jpTrans(text,'zh')
-    elif trans=='en':
+    elif lang=='en':
         sentence = trans.enTrans(text,'zh')
     return sentence
 
