@@ -38,7 +38,7 @@ def handle(text, mic, profile):
 
         mp3MusicList = {'稻香':'/home/pi/masonInPython/hc/static/4113470514.mp3','东京':'/home/pi/masonInPython/hc/static/Tokyo_Bon.mp3','品冠':'/home/pi/masonInPython/hc/static/1200476465.mp3'}
         
-        if mic.transjp_mode:
+        if mic.trans_mode:
 
             pygame.mixer.init()
 
