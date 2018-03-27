@@ -78,14 +78,14 @@ def handle(text, mic, profile):
                 pygame.mixer.music.play()
         else:
             mic.say("进入动感音乐模式")
-            mic.transjp_mode = True
+            mic.trans_mode = True
             mic.skip_passive = True
     else:
         pygame.mixer.music.stop()
         pygame.quit()
         mic.say("退出动感音乐模式")
         mic.skip_passive = False
-        mic.transjp_mode = False
+        mic.trans_mode = False
 
     return True
 

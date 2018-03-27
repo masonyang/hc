@@ -228,14 +228,14 @@ def handle(text, mic, profile):
             if input == "退出电台":
                 music_player.stop()
                 mic.say(u"退出电台")
-                mic.transjp_mode = False
+                mic.trans_mode = False
                 mic.fm_mode = False
                 mic.skip_passive = False
                 return True
             else:
                 mic.say(u"什么？")
                 music_player.resume()
-                mic.transjp_mode = True
+                mic.trans_mode = True
                 mic.skip_passive = True
                 mic.fm_mode = True
 

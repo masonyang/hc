@@ -68,7 +68,7 @@ class conversation(object):
 					if input:
 						self.brain.query(input)
 					else:
-						if not self.mic.transjp_mode:
+						if not self.mic.trans_mode:
 							self.mic.say("什么?")
 
 

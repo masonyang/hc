@@ -50,7 +50,9 @@ class Mic:
         self.stop_passive = False
         self.skip_passive = False
         self.chatting_mode = False
+        self.trans_mode = False
         self.transjp_mode = False
+        self.transen_mode = False
         self.fm_mode = False
     def __del__(self):
         self._audio.terminate()

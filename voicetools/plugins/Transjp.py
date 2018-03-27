@@ -38,18 +38,30 @@ def handle(text, mic, profile):
     """
     if not any(word in text for word in ["结束翻译", "翻译结束"]):
 
-        if mic.transjp_mode:
-            sentence = transJp(text)
-            mic.say(sentence,False,'jp')
+        if mic.trans_mode:
+            if mic.transjp_mode:
+                sentence = transJp(text)
+                mic.say(sentence,False,'jp')
+            elif mic.transen_mode:
+                sentence = transJp(text)
+                mic.say(sentence,False,'jp')
         else:
-            mic.say("进入中文翻译日文模式，现在跟我说说话吧")
-            mic.transjp_mode = True
+            if text == "日语翻译":
+                mic.say("进入中文翻译日文模式，现在跟我说说话吧")
+                mic.transjp_mode = True
+                mic.transen_mode = False
+            elif text == "英语翻译":
+                mic.say("进入中文翻译英语模式，现在跟我说说话吧")
+                mic.transjp_mode = False
+                mic.transen_mode = True
+            mic.trans_mode = True
             mic.skip_passive = True
     else:
         mic.say("退出中文翻译日文模式")
         mic.skip_passive = False
+        mic.trans_mode = False
         mic.transjp_mode = False
-
+        mic.transen_mode = False
     return True
 
 def transJp(text):
@@ -70,7 +82,7 @@ def isValid(mic,text):
     if mic.transjp_mode:
         return True
     else:
-        return any(word in text for word in ["日语翻译", "结束翻译", "翻译结束"])
+        return any(word in text for word in ["日语翻译", "英语翻译", "结束翻译", "翻译结束"])
 
 
 class Translate(object):
