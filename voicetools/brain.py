@@ -111,6 +111,8 @@ class Brain(object):
                     self.mic.skip_passive = False
                     self.mic.chatting_mode = False
                     self.mic.transjp_mode = False
+                    self.mic.transen_mode = False
+                    self.mic.trans_mode = False
                     self.mic.fm_mode = False
                     return
                 else:

@@ -283,7 +283,7 @@ class Mic:
         
         record_second = 5
 
-        if not self.transjp_mode:
+        if not self.trans_mode:
             self.say(dingdangpath.data('audio', 'beep_hi.wav'),True)
 
         file_path = os.path.join(dingdangpath.DATA_PATH,'audio/listen_content.wav')
@@ -338,7 +338,7 @@ class Mic:
             print("异常:"+e.message)
             pass
 
-        if not self.transjp_mode:
+        if not self.trans_mode:
             self.say(dingdangpath.data('audio', 'beep_lo.wav'),True)
 
         return self.active_stt_engine.transcribe(frames)
