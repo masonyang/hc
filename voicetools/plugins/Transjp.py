@@ -57,7 +57,10 @@ def handle(text, mic, profile):
             mic.trans_mode = True
             mic.skip_passive = True
     else:
-        mic.say("退出中文翻译日文模式")
+        if mic.transjp_mode:
+            mic.say("退出中文翻译日文模式")
+        elif mic.transen_mode:
+            mic.say("退出中文翻译英语模式")
         mic.skip_passive = False
         mic.trans_mode = False
         mic.transjp_mode = False
