@@ -40,11 +40,11 @@ def handle(text, mic, profile):
 
         if mic.trans_mode:
             if mic.transjp_mode:
-                sentence = transJp(text)
+                sentence = trans(text,'jp')
                 mic.say(sentence,False,'jp')
             elif mic.transen_mode:
-                sentence = transJp(text)
-                mic.say(sentence,False,'jp')
+                sentence = trans(text,'en')
+                mic.say(sentence,False,'en')
         else:
             if text == "日语翻译":
                 mic.say("进入中文翻译日文模式，现在跟我说说话吧")
@@ -64,11 +64,13 @@ def handle(text, mic, profile):
         mic.transen_mode = False
     return True
 
-def transJp(text):
+def trans(text,trans='jp'):
     trans = Translate()
 
-    sentence = trans.jpTrans(text,'zh')
-
+    if trans=='jp':
+        sentence = trans.jpTrans(text,'zh')
+    elif trans=='en':
+        sentence = trans.enTrans(text,'zh')
     return sentence
 
 def isValid(mic,text):
@@ -79,7 +81,7 @@ def isValid(mic,text):
         text -- user-input, typically transcribed speech
     """
 
-    if mic.transjp_mode:
+    if mic.trans_mode:
         return True
     else:
         return any(word in text for word in ["日语翻译", "英语翻译", "结束翻译", "翻译结束"])
@@ -151,7 +153,7 @@ class Translate(object):
 
         pass
     
-    def trans(self,sentence,f):
+    def enTrans(self,sentence,f):
 
         if(f == 'zh'):
             t = 'en'

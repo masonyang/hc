@@ -97,7 +97,7 @@ def isValid(mic,text):
         text -- user-input, typically transcribed speech
     """
 
-    if mic.transjp_mode:
+    if mic.trans_mode:
         return True
     else:
         return any(word in text for word in ["播放音乐", "结束播放", "暂停播放","继续播放"])
