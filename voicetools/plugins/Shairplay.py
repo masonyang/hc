@@ -19,6 +19,11 @@ def handle(text, mic, profile):
     mic.skip_passive = True
     persona = ['多啦a梦','哆啦a梦']
 
+    mic.say(u"已为你开启无线播放器")
+
+
+    os.system('cd /home/pi/masonInPython/shairplay/airport.key')
+
     os.system('/usr/local/bin/shairplay --apname=无线播放器')
 
     while True:
