@@ -22,9 +22,7 @@ def handle(text, mic, profile):
     mic.say(u"已为你开启无线播放器")
 
 
-    os.system('cd /home/pi/masonInPython/shairplay/airport.key')
-
-    os.system('/usr/local/bin/shairplay --apname=无线播放器')
+    os.system('cd /home/pi/masonInPython/shairplay && /usr/local/bin/shairplay --apname=无线播放器')
 
     while True:
 
