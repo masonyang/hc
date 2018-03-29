@@ -38,6 +38,8 @@ def handle(text, mic, profile):
             if not transcribed or not threshold:
                 print("Shairplay Nothing has been said or transcribed.如要开启/关闭语音，请去后台百度语音开关操作")
                 continue
+            else:
+                print("play stop.say something")
 
             input = mic.activeListen()
 
