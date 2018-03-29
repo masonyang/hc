@@ -38,7 +38,7 @@ def handle(text, mic, profile):
 
             input = mic.activeListen()
 
-            if any(word in input for word in [u"关闭无线播放器",u"关闭无限播放器"])
+            if any(word in input for word in [u"关闭无线播放器",u"关闭无限播放器"]):
                 os.system('killall /usr/local/bin/shairplay')
                 mic.say(u"关闭无线播放器")
                 mic.trans_mode = False
