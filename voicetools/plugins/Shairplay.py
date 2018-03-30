@@ -22,7 +22,7 @@ def handle(text, mic, profile):
     mic.say(u"已为你开启无线播放器")
 
 
-    os.system('cd /home/pi/masonInPython/shairplay && /usr/local/bin/shairplay --apname=无线播放器')
+    os.system('/bin/sh /home/pi/masonInPython/hc/voicetools/shairplay_pi.sh start')
 
     while True:
 
@@ -43,14 +43,16 @@ def handle(text, mic, profile):
 
             input = mic.activeListen()
 
-            if any(word in input for word in [u"关闭无线播放器",u"关闭无限播放器"]):
-                os.system('killall /usr/local/bin/shairplay')
+            if any(word in input for word in [u"关闭"]):
+                os.system('/bin/sh /home/pi/masonInPython/hc/voicetools/shairplay_pi.sh stop')
                 mic.say(u"关闭无线播放器")
                 mic.trans_mode = False
                 mic.fm_mode = False
                 mic.skip_passive = False
                 return True
-
+            elif any(word in input for word in [u"重新启动"]):
+                os.system('/bin/sh /home/pi/masonInPython/hc/voicetools/shairplay_pi.sh restart')
+                mic.say(u"重新启动无线播放器")
 
 def readBaiduFmSwitchConfig(key):
 
