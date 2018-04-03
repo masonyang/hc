@@ -107,6 +107,8 @@ def suggestion(keyword,mic,city,app_key):
 
     res = request(url_place, params_place)
 
+    print(res)
+
     if res:
         status = res["status"]
         if status == 0:
