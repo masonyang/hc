@@ -26,7 +26,7 @@ def handle(text, mic, profile):
 
     mic.fm_mode = True
 
-    app_key = ''
+    app_key = 'tzWgCACxPuNInF9LxklKVea3miAclbuf'
 
     city = '上海'
 
@@ -137,7 +137,7 @@ def suggestion(keyword,mic,city,app_key):
 
 
 def isValid(mic,text):
-    if text.find('怎么走') == -1:
+    if text.find('路线') == -1:
         return False
     else:
         return True
