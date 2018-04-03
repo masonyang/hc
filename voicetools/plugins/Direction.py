@@ -136,7 +136,7 @@ def suggestion(keyword,mic,city,app_key):
         return True
 
 
-def isValid(text):
+def isValid(mic,text):
     if text.find('怎么走') == -1:
         return False
     else:
