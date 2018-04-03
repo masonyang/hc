@@ -26,7 +26,7 @@ def handle(text, mic, profile):
 
     mic.fm_mode = True
 
-    app_key = profile[SLUG]['app_key']
+    app_key = ''
 
     city = '上海'
 
