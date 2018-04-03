@@ -60,7 +60,7 @@ def handle(text, mic, profile):
                 direction = ""
                 for step in res['result']['routes'][0]['steps']:
                     direction = direction + step[0]["instructions"] + "."
-                    result = place_name + u"参考路线:" + direction
+                    result = u"参考路线:" + direction
                 mic.say(result)
                 mic.fm_mode = False
                 return True
@@ -107,13 +107,11 @@ def suggestion(keyword,mic,city,app_key):
 
     res = request(url_place, params_place)
 
-    print(res)
-
     if res:
         status = res["status"]
         if status == 0:
             if len(res['result']) > 0:
-                place_name = res['result'][0]["name"]
+                # place_name = res['result'][0]["name"]
                 return "%f,%f" % (res['result'][0]["location"]['lat'], res['result'][0]["location"]['lng'])
             else:
                 mic.say(u"错误的位置")
