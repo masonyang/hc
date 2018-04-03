@@ -20,13 +20,25 @@ def request(url, params):
     content = f.read()
     return json.loads(content)
 
+def readBaiduMapConfig():
+
+    data_file = os.path.join(dingdangpath.TEMP_PATH, 'baidu_map.json')
+
+    f=open(data_file)
+
+    setting = json.load(f)
+
+    return setting
+
 def handle(text, mic, profile):
 
     mic.say(u'去哪里')
 
     mic.fm_mode = True
 
-    app_key = 'tzWgCACxPuNInF9LxklKVea3miAclbuf'
+    settings = readBaiduMapConfig()
+
+    app_key = settings['app_key']
 
     city = '上海'
 
