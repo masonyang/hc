@@ -30,61 +30,52 @@ def handle(text, mic, profile):
 
     city = '上海'
 
-    while True:
+    or_igin,distine = fenxiText(text)
 
-        input = mic.activeListen()
+    print(or_igin+'___'+distine)
 
-        if input is None:
-            mic.say(u'已取消')
-            mic.fm_mode = False
-            return True
+    origin = suggestion(or_igin,mic,city,app_key)
 
-        or_igin,distine = fenxiText(input)
+    if origin == True:
+        return True
 
-        print(or_igin+'___'+distine)
+    destination = suggestion(distine,mic,city,app_key)
 
-        origin = suggestion(or_igin,mic,city,app_key)
+    if destination == True:
+        return True
 
-        if origin == True:
-            return True
+    url_direction = "http://api.map.baidu.com/direction/v2/transit"
+    params_direction = {
+        "origin" : origin,
+        "destination" : destination,
+        "page_size" : 1,
+        "ak" : app_key,
+    }
 
-        destination = suggestion(distine,mic,city,app_key)
-
-        if destination == True:
-            return True
-
-        url_direction = "http://api.map.baidu.com/direction/v2/transit"
-        params_direction = {
-            "origin" : origin,
-            "destination" : destination,
-            "page_size" : 1,
-            "ak" : app_key,
-        }
-
-        res = request(url_direction, params_direction)
-        if res:
-            status = res["status"]
-            if status == 0:
-                if len(res['result']['routes']) > 0:
-                    direction = ""
-                    for step in res['result']['routes'][0]['steps']:
-                        direction = direction + step[0]["instructions"] + "."
-                        result = place_name + u"参考路线:" + direction
-                    mic.say(result)
-                    mic.fm_mode = False
-                    return True
-                else:
-                    mic.say(u"导航错误")
-                    mic.fm_mode = False
-                    return True
+    res = request(url_direction, params_direction)
+    if res:
+        status = res["status"]
+        if status == 0:
+            if len(res['result']['routes']) > 0:
+                direction = ""
+                for step in res['result']['routes'][0]['steps']:
+                    direction = direction + step[0]["instructions"] + "."
+                    result = place_name + u"参考路线:" + direction
+                mic.say(result)
+                mic.fm_mode = False
+                return True
             else:
-                mic.say(u"导航接口:" + res['message'])
+                mic.say(u"导航错误")
                 mic.fm_mode = False
                 return True
         else:
-            mic.say(u"导航接口调用失败")
+            mic.say(u"导航接口:" + res['message'])
             mic.fm_mode = False
             return True
+    else:
+        mic.say(u"导航接口调用失败")
+        mic.fm_mode = False
+        return True
 
 def fenxiText(text):
     PATTERN = ur'([\u4e00-\u9fa5]{1,10}?(?:到))([\u4e00-\u9fa5]{1,10}?(?:怎么走)){0,3}'
@@ -137,7 +128,7 @@ def suggestion(keyword,mic,city,app_key):
 
 
 def isValid(mic,text):
-    if text.find('路线') == -1:
+    if text.find('怎么走') == -1:
         return False
     else:
         return True
