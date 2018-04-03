@@ -3,6 +3,7 @@
 import sys
 import os
 import re
+import dingdangpath
 import json, urllib
 from urllib import urlencode
 
