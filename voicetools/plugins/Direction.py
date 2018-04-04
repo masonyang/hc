@@ -33,7 +33,7 @@ def readBaiduMapConfig():
 
 def handle(text, mic, profile):
 
-    mic.say(u'去哪里')
+    mic.say(u'正在查询')
 
     mic.fm_mode = True
 
