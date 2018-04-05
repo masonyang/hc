@@ -11,6 +11,7 @@ import base64
 import hashlib
 import json
 import dingdangpath
+import random
 from urllib import urlopen
 
 reload(sys)
@@ -185,13 +186,25 @@ def get_song_list(channel_url):
 
 
 def handle(text, mic, profile):
-    page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
-    channel_list = get_channel_list(page_url)
 
-    channel = DEFAULT_CHANNEL
+    channel_config = readBaiduFmSwitchConfig('channel')
 
-    channel_id = channel_list[channel]['channel_id']
-    channel_name = channel_list[channel]['channel_name']
+    if(channel_config):
+
+        in_dex = random.randint(0,9)
+
+        channel_id = channel_config[in_dex]['channel_id']
+        channel_name = channel_config[in_dex]['channel_name']
+
+    else:
+        page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
+        channel_list = get_channel_list(page_url)
+
+        channel = DEFAULT_CHANNEL
+
+        channel_id = channel_list[channel]['channel_id']
+        channel_name = channel_list[channel]['channel_name']
+
     mic.say(u"播放" + channel_name)
 
     channel_url = 'http://fm.baidu.com/dev/api/' +\
