@@ -187,31 +187,31 @@ def get_song_list(channel_url):
 
 def handle(text, mic, profile):
 
-    # channel_config = readBaiduFmSwitchConfig('channel')
+    channel_config = readBaiduFmSwitchConfig('channel')
 
-    # if(channel_config):
+    if(channel_config):
 
-    #     in_dex = random.randint(0,9)
+        in_dex = random.randint(0,9)
 
-    #     channel_id = channel_config[in_dex]['channel_id']
-    #     channel_name = channel_config[in_dex]['channel_name']
+        channel_id = channel_config[in_dex]['channel_id']
+        channel_name = channel_config[in_dex]['channel_name']
 
-    # else:
-    #     page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
-    #     channel_list = get_channel_list(page_url)
+    else:
+        page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
+        channel_list = get_channel_list(page_url)
 
-    #     channel = DEFAULT_CHANNEL
+        channel = DEFAULT_CHANNEL
 
-    #     channel_id = channel_list[channel]['channel_id']
-    #     channel_name = channel_list[channel]['channel_name']
+        channel_id = channel_list[channel]['channel_id']
+        channel_name = channel_list[channel]['channel_name']
 
-    page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
-    channel_list = get_channel_list(page_url)
+    # page_url = 'http://fm.baidu.com/dev/api/?tn=channellist'
+    # channel_list = get_channel_list(page_url)
 
-    channel = DEFAULT_CHANNEL
+    # channel = DEFAULT_CHANNEL
 
-    channel_id = channel_list[channel]['channel_id']
-    channel_name = channel_list[channel]['channel_name']
+    # channel_id = channel_list[channel]['channel_id']
+    # channel_name = channel_list[channel]['channel_name']
         
     mic.say(u"播放" + channel_name)
 
